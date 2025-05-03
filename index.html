@@ -3,232 +3,480 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joel Robert | AI Designer Portfolio</title>
-    <meta name="description" content="Portfolio of Joel Robert, AI Designer based in Kochi, Kerala. Showcasing high-end AI-generated visuals for concept art, characters, scenes, and more.">
-    
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <title>Joel Robert - AI Visual Designer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Montserrat', sans-serif; background-color: #0a0a0a; color: #e0e0e0; overflow-x: hidden; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-        html { scroll-behavior: smooth; }
-        .category-btn { @apply text-base font-medium tracking-wider text-gray-400 hover:text-white transition duration-300 uppercase relative pb-2; }
-        .category-btn::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 3px; background-color: #fff; transition: width 0.3s ease-in-out; }
-        .category-btn.active::after, .category-btn:hover::after { width: 100%; }
-        .category-btn.active { @apply text-white; }
-        .nav-link { @apply text-sm font-light tracking-wider text-gray-400 hover:text-white transition duration-300 uppercase; }
-        .hero-title-main { font-size: clamp(3rem, 12vw, 8rem); @apply font-bold leading-none tracking-tighter; }
-        .portfolio-heading { @apply text-5xl md:text-6xl font-semibold mb-20 md:mb-24 tracking-tight; }
-        .section-heading-alt { @apply text-4xl md:text-5xl font-semibold mb-16 tracking-tight; }
-        .portfolio-item-alt { @apply mb-8 md:mb-12 transition duration-300 ease-in-out transform hover:scale-[1.02]; }
-        .portfolio-item-alt img { @apply block w-full h-auto mb-4; }
-        .portfolio-title { @apply text-xl font-medium mb-1; }
-        .portfolio-category { @apply text-sm font-light text-gray-400 tracking-wider uppercase; }
-        .container-alt { @apply max-w-7xl mx-auto px-6 md:px-10; }
-        .fade-in { animation: fadeIn 0.8s ease-in forwards; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .portfolio-item-alt img { display: block; width: 100%; height: auto; } 
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0a0a0a;
+            color: #f5f5f5;
+            scroll-behavior: smooth;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+        }
+        
+        .portfolio-item {
+            transition: transform 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #f5f5f5;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .active-filter {
+            background-color: #f5f5f5;
+            color: #0a0a0a;
+        }
+        
+        input, textarea {
+            background-color: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #f5f5f5;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: rgba(255,255,255,0.4);
+        }
     </style>
 </head>
-<body class="pb-20">
-
+<body>
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-80 backdrop-blur-sm">
-        <div class="container-alt py-4 flex justify-between items-center">
-            <a href="#" class="text-lg font-semibold tracking-wider">JOEL ROBERT</a>
-            <div class="space-x-6 md:space-x-8">
-                <a href="#portfolio" class="nav-link">Works</a>
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-80 backdrop-blur-sm py-4 px-6 md:px-12">
+        <div class="flex justify-between items-center">
+            <a href="#home" class="text-xl font-bold tracking-tight">JOEL ROBERT</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#works" class="nav-link">Works</a>
                 <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
+            <button class="md:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
         </div>
     </nav>
 
-    <!-- Main Content Wrapper -->
-    <div class="pt-20"> 
+    <!-- Mobile Menu (hidden by default) -->
+    <div id="mobileMenu" class="fixed inset-0 bg-black z-40 flex flex-col items-center justify-center space-y-8 hidden">
+        <a href="#works" class="text-2xl">Works</a>
+        <a href="#about" class="text-2xl">About</a>
+        <a href="#services" class="text-2xl">Services</a>
+        <a href="#contact" class="text-2xl">Contact</a>
+        <button id="closeMenu" class="absolute top-6 right-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
 
-        <!-- Hero Section -->
-        <header class="min-h-screen flex items-center justify-center text-center bg-gradient-to-b from-black via-gray-900 to-black">
-             <div class="container-alt py-24 md:py-32">
-                <h1 class="hero-title-main mb-4 fade-in">JOEL ROBERT</h1> 
-                <p class="text-lg md:text-xl font-light tracking-widest text-gray-300 uppercase fade-in" style="animation-delay: 0.2s;">AI Visual Designer</p>
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center px-6 md:px-12 pt-20">
+        <div class="text-center fade-in">
+            <h1 class="text-6xl md:text-8xl font-bold mb-4 tracking-tighter">JOEL ROBERT</h1>
+            <p class="text-xl md:text-2xl opacity-80">AI Visual Designer</p>
+            <div class="mt-12">
+                <a href="#works" class="inline-block border border-white px-8 py-3 hover:bg-white hover:text-black transition-colors duration-300">
+                    View Works
+                </a>
             </div>
-        </header>
+        </div>
+    </section>
 
-        <!-- Featured Works Section (Portfolio) -->
-        <section id="portfolio" class="py-24 md:py-32">
-            <div class="container-alt">
-                <div class="text-center border-t border-gray-800 pt-10 mb-16 md:mb-20"> 
-                    <h2 class="portfolio-heading">FEATURED WORKS</h2> 
-                 </div>
-                <div class="flex flex-wrap justify-center gap-8 md:gap-10 mb-16 md:mb-20"> 
-                    <button class="category-btn active" data-category="all">All</button>
-                    <button class="category-btn" data-category="concept">Concept Art</button>
-                    <button class="category-btn" data-category="action">Action/Sports</button>
-                    <button class="category-btn" data-category="character">Character</button>
-                    <button class="category-btn" data-category="scene">Scene/Storyboard</button>
-                    <button class="category-btn" data-category="product">Product</button>
-                    <button class="category-btn" data-category="illustration">Illustration</button>
+    <!-- Portfolio Section -->
+    <section id="works" class="py-20 px-6 md:px-12">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center fade-in">Featured Works</h2>
+            
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12 fade-in">
+                <button class="filter-btn px-4 py-2 border border-white hover:bg-white hover:text-black transition-colors" data-filter="all">All</button>
+                <button class="filter-btn px-4 py-2 border border-white hover:bg-white hover:text-black transition-colors" data-filter="concept">Concept Art</button>
+                <button class="filter-btn px-4 py-2 border border-white hover:bg-white hover:text-black transition-colors" data-filter="action">Action/Sports</button>
+                <button class="filter-btn px-4 py-2 border border-white hover:bg-white hover:text-black transition-colors" data-filter="character">Character</button>
+                <button class="filter-btn px-4 py-2 border border-white hover:bg-white hover:text-black transition-colors" data-filter="illustration">Illustration</button>
+                <button class="filter-btn px-4 py-2 border border-white hover:bg-white hover:text-black transition-colors" data-filter="epic">Epic Scenes</button>
+            </div>
+            
+            <!-- Portfolio Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Portfolio Item 1 -->
+                <div class="portfolio-item fade-in" data-category="character">
+                    <img src="sorted_port/charecter test1.webp" alt="Woman in floral saree smiling in flower field" class="w-full h-auto object-cover">
+                    <div class="mt-4">
+                        <h3 class="text-xl font-medium">Floral Portrait</h3>
+                        <p class="text-gray-400">Character Design</p>
+                    </div>
                 </div>
                 
-                <!-- Portfolio Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-12"> 
-                    
-                    <div class="portfolio-item-alt" data-category="concept"> <img src="sorted_port/aliens.webp" alt="Futuristic city with giant alien entity"><h3 class="portfolio-title">Celestial Visitor</h3><p class="portfolio-category">Concept Art / Sci-Fi</p></div>
-                    <div class="portfolio-item-alt" data-category="action"> <img src="sorted_port/bike6.webp" alt="Motocross rider kicking up sand"><h3 class="portfolio-title">Desert Kick-up</h3><p class="portfolio-category">Action / Sports</p></div>
-                    <div class="portfolio-item-alt" data-category="illustration"> <img src="sorted_port/ILLUSTRATION.webp" alt="Four panel comic strip about filmmaking"><h3 class="portfolio-title">Filmmaking Comic</h3><p class="portfolio-category">Illustration / Comic</p></div>
-                    <div class="portfolio-item-alt" data-category="character"> <img src="sorted_port/charecter test1.webp" alt="Woman in floral saree smiling"><h3 class="portfolio-title">Floral Elegance</h3><p class="portfolio-category">Character Design</p></div>
-                    <div class="portfolio-item-alt" data-category="product"> <img src="sorted_port/cup1.webp" alt="Two men in suits holding branded coffee cups"><h3 class="portfolio-title">Brand Mockup</h3><p class="portfolio-category">Product / Branding</p></div>
-                    <div class="portfolio-item-alt" data-category="scene"> <img src="sorted_port/epic2.webp" alt="Figure standing before king in ornate royal court"><h3 class="portfolio-title">Before the Throne</h3><p class="portfolio-category">Scene / Storyboard</p></div>
-                    <div class="portfolio-item-alt" data-category="concept"> <img src="sorted_port/hill1.webp" alt="Temple on mountain cliff above clouds at sunset"> <h3 class="portfolio-title">Temple Above Clouds</h3><p class="portfolio-category">Concept Art / Landscape</p></div>
-                    <div class="portfolio-item-alt" data-category="action"> <img src="sorted_port/bike5.webp" alt="Motocross rider racing through muddy forest"><h3 class="portfolio-title">Mud Splatter</h3><p class="portfolio-category">Action / Sports</p></div>
-                    <div class="portfolio-item-alt" data-category="character"> <img src="sorted_port/man1.webp" alt="Intense close-up portrait of man"><h3 class="portfolio-title">Intense Gaze</h3><p class="portfolio-category">Character Design / Portrait</p></div>
-                    <div class="portfolio-item-alt" data-category="illustration"> <img src="sorted_port/illustrastion3.webp" alt="Comic panels showing action sequence"> <h3 class="portfolio-title">Action Sequence</h3><p class="portfolio-category">Illustration / Storyboard</p></div>
-                    <div class="portfolio-item-alt" data-category="product"> <img src="sorted_port/glasses.webp" alt="Aviator sunglasses on beach"><h3 class="portfolio-title">Beach Vision</h3><p class="portfolio-category">Product</p></div>
-                    <div class="portfolio-item-alt" data-category="concept"> <img src="sorted_port/hero1.webp" alt="Superman figure in space"><h3 class="portfolio-title">Cosmic Hero</h3><p class="portfolio-category">Concept Art</p></div>
-                    <div class="portfolio-item-alt" data-category="scene"> <img src="sorted_port/movie5.webp" alt="Soldier watching explosion"><h3 class="portfolio-title">Distant Threat</h3><p class="portfolio-category">Scene</p></div>
-                    <div class="portfolio-item-alt" data-category="product"> <img src="sorted_port/watch.webp" alt="Wristwatch on leather"><h3 class="portfolio-title">Timeless Piece</h3><p class="portfolio-category">Product</p></div>
-                    <div class="portfolio-item-alt" data-category="action"> <img src="sorted_port/bike2.webp" alt="Motocross start line"><h3 class="portfolio-title">Starting Gate</h3><p class="portfolio-category">Action</p></div>
-                    <div class="portfolio-item-alt" data-category="character"> <img src="sorted_port/joel.webp" alt="Pilot Joel"><h3 class="portfolio-title">Pilot Joel</h3><p class="portfolio-category">Character</p></div>
-                    <div class="portfolio-item-alt" data-category="illustration"> <img src="sorted_port/illustrastion4.webp" alt="Romance comic panels"><h3 class="portfolio-title">Romance Panels</h3><p class="portfolio-category">Illustration</p></div>
-                    <div class="portfolio-item-alt" data-category="concept"> <img src="sorted_port/temple1.webp" alt="Arasan Bakery 3D scene"><h3 class="portfolio-title">Arasan Bakery 3D</h3><p class="portfolio-category">Concept Art</p></div>
-                    <div class="portfolio-item-alt" data-category="character"> <img src="sorted_port/charecter test2.webp" alt="Woman smiling brightly in field of flowers"><h3 class="portfolio-title">Spring Reverie</h3><p class="portfolio-category">Character Design</p></div>
-                    <div class="portfolio-item-alt" data-category="concept"> <img src="sorted_port/city1.webp" alt="Aerial view of city highway at dusk"><h3 class="portfolio-title">Urban Flow</h3><p class="portfolio-category">Concept Art / Environment</p></div>
-                    <div class="portfolio-item-alt" data-category="concept"> <img src="sorted_port/epic1.webp" alt="Warrior on dusty chariot in golden light"><h3 class="portfolio-title">Heroic Ride</h3><p class="portfolio-category">Concept Art / Historical</p></div>
-                    <div class="portfolio-item-alt" data-category="concept"> <img src="sorted_port/epic4.webp" alt="Warrior on chariot with four horses against large sun"><h3 class="portfolio-title">Solar Chariot</h3><p class="portfolio-category">Concept Art / Mythological</p></div>
-                    <div class="portfolio-item-alt" data-category="concept"> <img src="sorted_port/epic5.webp" alt="Silhouette of ancient chariot against sunset"><h3 class="portfolio-title">Sunset Charge</h3><p class="portfolio-category">Concept Art / Historical</p></div>
-                    <div class="portfolio-item-alt" data-category="concept"> <img src="sorted_port/epic6.webp" alt="Ancient chariot with flames against golden sky"><h3 class="portfolio-title">Flaming Chariot</h3><p class="portfolio-category">Concept Art / Fantasy</p></div>
-                    <div class="portfolio-item-alt" data-category="concept"> <img src="sorted_port/hill2.webp" alt="Sunset over mountain valley city"><h3 class="portfolio-title">Valley Sunset</h3><p class="portfolio-category">Concept Art / Landscape</p></div>
-                    <div class="portfolio-item-alt" data-category="scene"> <img src="sorted_port/epic3.webp" alt="Figure entering grand royal court hall"><h3 class="portfolio-title">Royal Audience</h3><p class="portfolio-category">Scene / Storyboard</p></div>
-                    <div class="portfolio-item-alt" data-category="scene"> <img src="sorted_port/movie1.webp" alt="Musicians playing instruments on boat on lake"><h3 class="portfolio-title">Lakeside Serenade</h3><p class="portfolio-category">Scene / Storyboard</p></div>
-                    <div class="portfolio-item-alt" data-category="scene"> <img src="sorted_port/movie2.webp" alt="Couple sitting closely on park bench at sunset"><h3 class="portfolio-title">Park Bench Romance</h3><p class="portfolio-category">Scene / Storyboard</p></div>
-                    <div class="portfolio-item-alt" data-category="scene"> <img src="sorted_port/movie3.webp" alt="Man in winter gear looking at explosion over ice"><h3 class="portfolio-title">Arctic Incident</h3><p class="portfolio-category">Scene / Storyboard</p></div>
-                    <div class="portfolio-item-alt" data-category="scene"> <img src="sorted_port/movie4.webp" alt="Man looking intensely towards fire background"><h3 class="portfolio-title">Facing Calamity</h3><p class="portfolio-category">Scene / Storyboard</p></div>
-                    <div class="portfolio-item-alt" data-category="character"> <img src="sorted_port/self1.webp" alt="Pilot named Amal looking back by fighter jet at sunset"><h3 class="portfolio-title">Pilot Amal</h3><p class="portfolio-category">Character Design / Aviation</p></div>
-                    <div class="portfolio-item-alt" data-category="character"> <img src="sorted_port/self3.webp" alt="Man reading book by fireplace"><h3 class="portfolio-title">Cozy Evening</h3><p class="portfolio-category">Character / Scene</p></div>
-                    <div class="portfolio-item-alt" data-category="scene"> <img src="sorted_port/stage1.webp" alt="Audience members watching intently in theater"><h3 class="portfolio-title">Captivated Audience</h3><p class="portfolio-category">Scene / Storyboard</p></div>
-                    <div class="portfolio-item-alt" data-category="illustration"> <img src="sorted_port/temple2.webp" alt="Colorful line doodle illustration of Tamil Nadu"><h3 class="portfolio-title">Tamil Nadu Doodle</h3><p class="portfolio-category">Illustration / Cultural</p></div>
-                    <div class="portfolio-item-alt" data-category="illustration"> <img src="sorted_port/tiger1.webp" alt="Cute cartoon tiger leaping playfully"><h3 class="portfolio-title">Playful Tiger</h3><p class="portfolio-category">Illustration / Character</p></div>
-                    <div class="portfolio-item-alt" data-category="action"> <img src="sorted_port/bike4.webp" alt="Lineup of motocross bikes and mechanics in garage"><h3 class="portfolio-title">Race Prep</h3><p class="portfolio-category">Scene / Action</p></div>
-                    <div class="portfolio-item-alt" data-category="action"> <img src="sorted_port/bike3.webp" alt="Motocross team member at command center screens"><h3 class="portfolio-title">Race Command</h3><p class="portfolio-category">Scene / Action</p></div>
-                    <div class="portfolio-item-alt" data-category="action"> <img src="sorted_port/bikemeet.webp" alt="Two motocross riders with bikes under spotlights"><h3 class="portfolio-title">Night Riders</h3><p class="portfolio-category">Action / Sports</p></div>
-
-                </div> 
+                <!-- Portfolio Item 2 -->
+                <div class="portfolio-item fade-in" data-category="illustration">
+                    <img src="sorted_port/cup1.webp" alt="Two men in suits holding branded coffee cups" class="w-full h-auto object-cover">
+                    <div class="mt-4">
+                        <h3 class="text-xl font-medium">Branded Coffee</h3>
+                        <p class="text-gray-400">Illustration</p>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 3 -->
+                <div class="portfolio-item fade-in" data-category="epic">
+                    <img src="sorted_port/epic2.webp" alt="Figure standing before king in ornate royal court" class="w-full h-auto object-cover">
+                    <div class="mt-4">
+                        <h3 class="text-xl font-medium">Royal Court</h3>
+                        <p class="text-gray-400">Epic Scene</p>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 4 -->
+                <div class="portfolio-item fade-in" data-category="concept">
+                    <img src="sorted_port/hill1.webp" alt="Temple on mountain cliff above clouds at sunset" class="w-full h-auto object-cover">
+                    <div class="mt-4">
+                        <h3 class="text-xl font-medium">Mountain Temple</h3>
+                        <p class="text-gray-400">Concept Art</p>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 5 -->
+                <div class="portfolio-item fade-in" data-category="action">
+                    <img src="sorted_port/bike5.webp" alt="Motocross rider racing through muddy forest" class="w-full h-auto object-cover">
+                    <div class="mt-4">
+                        <h3 class="text-xl font-medium">Forest Race</h3>
+                        <p class="text-gray-400">Action/Sports</p>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 6 -->
+                <div class="portfolio-item fade-in" data-category="character">
+                    <img src="sorted_port/man1.webp" alt="Intense close-up portrait of man" class="w-full h-auto object-cover">
+                    <div class="mt-4">
+                        <h3 class="text-xl font-medium">Intense Portrait</h3>
+                        <p class="text-gray-400">Character Design</p>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 7 -->
+                <div class="portfolio-item fade-in" data-category="illustration">
+                    <img src="sorted_port/illustrastion3.webp" alt="Comic panels showing action sequence with character and water" class="w-full h-auto object-cover">
+                    <div class="mt-4">
+                        <h3 class="text-xl font-medium">Comic Sequence</h3>
+                        <p class="text-gray-400">Illustration</p>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 8 -->
+                <div class="portfolio-item fade-in" data-category="concept">
+                    <img src="sorted_port/glasses.webp" alt="Aviator sunglasses resting on sand at beach" class="w-full h-auto object-cover">
+                    <div class="mt-4">
+                        <h3 class="text-xl font-medium">Beach Glasses</h3>
+                        <p class="text-gray-400">Concept Art</p>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 9 -->
+                <div class="portfolio-item fade-in" data-category="epic">
+                    <img src="sorted_port/hero1.webp" alt="Superman-like figure floating in space above dog on rock" class="w-full h-auto object-cover">
+                    <div class="mt-4">
+                        <h3 class="text-xl font-medium">Space Hero</h3>
+                        <p class="text-gray-400">Epic Scene</p>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 10 -->
+                <div class="portfolio-item fade-in" data-category="epic">
+                    <img src="sorted_port/movie5.webp" alt="Soldier watching distant explosion at dusk" class="w-full h-auto object-cover">
+                    <div class="mt-4">
+                        <h3 class="text-xl font-medium">Warrior's Gaze</h3>
+                        <p class="text-gray-400">Epic Scene</p>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 11 -->
+                <div class="portfolio-item fade-in" data-category="concept">
+                    <img src="sorted_port/watch.webp" alt="Close-up of wristwatch on leather surface" class="w-full h-auto object-cover">
+                    <div class="mt-4">
+                        <h3 class="text-xl font-medium">Timepiece</h3>
+                        <p class="text-gray-400">Concept Art</p>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 12 -->
+                <div class="portfolio-item fade-in" data-category="action">
+                    <img src="sorted_port/bike2.webp" alt="Motocross racers lined up at starting gate at night" class="w-full h-auto object-cover">
+                    <div class="mt-4">
+                        <h3 class="text-xl font-medium">Night Race</h3>
+                        <p class="text-gray-400">Action/Sports</p>
+                    </div>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- About Section -->
-        <section id="about" class="py-24 md:py-32 bg-gray-900 bg-opacity-50"> 
-            <div class="container-alt text-center max-w-4xl"> 
-                <h2 class="section-heading-alt">ABOUT ME</h2> 
-                <div class="text-lg leading-relaxed text-gray-300 space-y-6"> 
-                    <p>I'm Joel Robert, an AI Designer based in Kochi, Kerala, crafting immersive visual experiences. My work blends cutting-edge AI with traditional design principles to create stunning imagery for film, games, and branding.</p> 
-                    <p>With expertise in concept art, storyboarding, character design, and dynamic action sequences, I transform ideas into visual narratives that captivate and inspire. Let's explore the creative frontiers of AI together.</p> 
-                </div> 
-            </div> 
-        </section>
-        
-        <!-- Services Section -->
-         <section id="services" class="py-24 md:py-32"> 
-            <div class="container-alt"> 
-                <h2 class="section-heading-alt text-center">OUR SERVICES</h2> 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center max-w-5xl mx-auto"> 
-                    <div> <h3 class="text-xl font-semibold mb-3">Concept Art</h3> <p class="text-gray-400 font-light">Environments, Characters, Props, Mood Boards, World Building.</p> </div> 
-                    <div> <h3 class="text-xl font-semibold mb-3">Storyboarding</h3> <p class="text-gray-400 font-light">Sequential Art, Animatics Prep, Shot Planning, Narrative Flow.</p> </div> 
-                    <div> <h3 class="text-xl font-semibold mb-3">AI Visualization</h3> <p class="text-gray-400 font-light">Product Mockups, Scene Generation, Style Exploration, Creative Ideation.</p> </div> 
-                </div> 
-            </div> 
-        </section>
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 md:px-12 bg-black bg-opacity-50">
+        <div class="max-w-4xl mx-auto text-center fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12">About</h2>
+            <div class="space-y-6 text-lg leading-relaxed">
+                <p>Joel Robert is an AI visual designer specializing in creating stunning, high-concept imagery through the fusion of artificial intelligence and artistic vision.</p>
+                <p>With a background in traditional art and digital design, Joel leverages cutting-edge AI tools to push creative boundaries and deliver unique visual experiences.</p>
+                <p>His work spans concept art, character design, and epic scene creation for clients in film, gaming, and advertising industries.</p>
+            </div>
+        </div>
+    </section>
 
-        <!-- Testimonials Section REMOVED -->
-        <!-- 
-        <section id="testimonials" class="py-24 md:py-32 bg-gray-900 bg-opacity-50"> 
-            <div class="container-alt text-center max-w-3xl"> 
-                 <h2 class="section-heading-alt">WHAT THEY SAID</h2> 
-                 <div class="space-y-8"> 
-                    <div class="testimonial-item"> 
-                         <p class="text-xl italic text-gray-300 mb-4">"Joel has an incredible eye for detail. Their ability to translate abstract ideas into stunning visuals is unmatched."</p> 
-                         <p class="font-semibold">Client Name</p> 
-                         <p class="text-sm text-gray-500">Role, Company</p> 
-                    </div> 
-                 </div> 
-            </div> 
-        </section> 
-        -->
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-6 md:px-12">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center fade-in">Services</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-black bg-opacity-50 p-8 rounded-lg fade-in">
+                    <h3 class="text-2xl font-bold mb-4">Concept Art</h3>
+                    <p class="text-gray-300">High-quality concept art for films, games, and products. From initial sketches to polished presentations.</p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-black bg-opacity-50 p-8 rounded-lg fade-in">
+                    <h3 class="text-2xl font-bold mb-4">Character Design</h3>
+                    <p class="text-gray-300">Unique character designs with detailed backstories and visual development for any medium.</p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-black bg-opacity-50 p-8 rounded-lg fade-in">
+                    <h3 class="text-2xl font-bold mb-4">AI Visualization</h3>
+                    <p class="text-gray-300">Cutting-edge AI-assisted visualization to bring your ideas to life with unprecedented speed and quality.</p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-black bg-opacity-50 p-8 rounded-lg fade-in">
+                    <h3 class="text-2xl font-bold mb-4">Storyboarding</h3>
+                    <p class="text-gray-300">Dynamic storyboards that capture the essence of your narrative with clear visual storytelling.</p>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-black bg-opacity-50 p-8 rounded-lg fade-in">
+                    <h3 class="text-2xl font-bold mb-4">World Building</h3>
+                    <p class="text-gray-300">Comprehensive world design with cohesive environments, cultures, and visual systems.</p>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-black bg-opacity-50 p-8 rounded-lg fade-in">
+                    <h3 class="text-2xl font-bold mb-4">Brand Visualization</h3>
+                    <p class="text-gray-300">Visual concepts that embody brand identity and communicate core values through striking imagery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-24 md:py-32"> 
-            <div class="container-alt max-w-4xl mx-auto"> 
-                <h2 class="section-heading-alt text-center">GET IN TOUCH</h2> 
-                <p class="text-center text-lg text-gray-400 mb-16 max-w-2xl mx-auto">Interested in collaborating or discussing how AI-driven design can elevate your project? Let's connect.</p> 
-                <div class="flex flex-col md:flex-row gap-12 justify-center items-start"> 
-                    <div class="w-full md:w-1/3 space-y-6 text-center md:text-left"> 
-                         <div class="flex items-center justify-center md:justify-start gap-4"> <i class="fas fa-envelope text-xl text-gray-500 w-6 text-center"></i> <div><a href="mailto:joelrobert669@gmail.com" class="hover:text-white transition duration-300">joelrobert669@gmail.com</a></div> </div> 
-                         <div class="flex items-center justify-center md:justify-start gap-4"> <i class="fas fa-map-marker-alt text-xl text-gray-500 w-6 text-center"></i> <div>Kochi, Kerala, India</div> </div> 
-                         <div class="flex items-center justify-center md:justify-start gap-4"> <i class="fas fa-globe text-xl text-gray-500 w-6 text-center"></i> <div class="flex gap-5"> <a href="https://www.linkedin.com/in/joel-robert-173386239/?originalSubdomain=in" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors"> <i class="fab fa-linkedin-in text-2xl"></i> </a> <a href="https://www.instagram.com/joelalla_/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors"> <i class="fab fa-instagram text-2xl"></i> </a> </div> </div> 
-                    </div> 
-                    <div class="w-full md:w-2/3"> 
-                        <form id="contact-form" class="space-y-6" name="contact" method="POST" data-netlify="true"> <input type="hidden" name="form-name" value="contact"> <div class="grid grid-cols-1 md:grid-cols-2 gap-6"> <div> <label for="name" class="hidden">Name</label> <input type="text" id="name" name="name" class="bg-gray-900 border border-gray-800 text-white text-sm block w-full p-3 focus:outline-none focus:border-gray-500 transition-colors" placeholder="Your Name" required> </div> <div> <label for="email" class="hidden">Email</label> <input type="email" id="email" name="email" class="bg-gray-900 border border-gray-800 text-white text-sm block w-full p-3 focus:outline-none focus:border-gray-500 transition-colors" placeholder="Your Email" required> </div> </div> <div> <label for="message" class="hidden">Message</label> <textarea id="message" name="message" rows="5" class="bg-gray-900 border border-gray-800 text-white text-sm block w-full p-3 focus:outline-none focus:border-gray-500 transition-colors" placeholder="What would you like to discuss?" required></textarea> </div> <div class="text-center md:text-right"> <button type="submit" class="inline-block py-3 px-8 text-sm font-medium text-center text-black bg-white hover:bg-gray-200 focus:outline-none transition-colors uppercase tracking-wider"> Send Message </button> </div> </form> <p id="form-success" class="mt-4 text-green-400 hidden">Thanks for your message!</p> 
-                    </div> 
-                </div> 
-            </div> 
-        </section>
-    
-    </div> <!-- End Main Content Wrapper -->
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 md:px-12 bg-black bg-opacity-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center fade-in">Contact</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div class="space-y-6 fade-in">
+                    <h3 class="text-2xl font-bold">Get in Touch</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            <span>joelrobert669@gmail.com</span>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <span>Based in Kochi, Kerala, India</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-4">
+                        <h4 class="text-lg font-medium mb-4">Connect</h4>
+                        <div class="flex space-x-6">
+                            <a href="https://www.linkedin.com/in/joel-robert-173386239/?originalSubdomain=in" target="_blank" class="hover:text-gray-300 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/joelalla_/" target="_blank" class="hover:text-gray-300 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="hover:text-gray-300 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="fade-in">
+                    <form id="contactForm" class="space-y-6">
+                        <div>
+                            <label for="name" class="block mb-2">Name</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-2 rounded">
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2">Email</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-2 rounded">
+                        </div>
+                        <div>
+                            <label for="subject" class="block mb-2">Subject</label>
+                            <input type="text" id="subject" name="subject" required class="w-full px-4 py-2 rounded">
+                        </div>
+                        <div>
+                            <label for="message" class="block mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 rounded"></textarea>
+                        </div>
+                        <button type="submit" class="bg-white text-black px-6 py-3 rounded hover:bg-gray-200 transition-colors">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="py-8 border-t border-gray-800 border-opacity-50"> 
-        <div class="container-alt text-center md:text-left"> 
-            <p class="text-xs text-gray-500">© 2024 Joel Robert. AI Designer.</p> 
-        </div> 
+    <footer class="py-8 px-6 md:px-12 text-center text-gray-400">
+        <div class="max-w-6xl mx-auto">
+            <p>&copy; <span id="year"></span> Joel Robert. All rights reserved.</p>
+        </div>
     </footer>
 
-    <!-- Script Section -->
     <script>
-         document.addEventListener('DOMContentLoaded', function() {
-            const filterBtns = document.querySelectorAll('.category-btn');
-            const portfolioItems = document.querySelectorAll('.portfolio-item-alt'); 
-            const portfolioGrid = document.querySelector('.grid'); 
-
-            if (filterBtns.length > 0 && portfolioItems.length > 0 && portfolioGrid) { 
-                filterBtns.forEach(btn => {
-                    btn.addEventListener('click', () => {
-                        filterBtns.forEach(b => b.classList.remove('active')); 
-                        btn.classList.add('active'); 
-                        const filterValue = btn.getAttribute('data-category');
-                        
-                        portfolioItems.forEach(item => {
-                            const itemCategory = item.getAttribute('data-category');
-                            item.style.display = (filterValue === 'all' || filterValue === itemCategory) ? 'block' : 'none'; 
-                        });
-                    });
-                });
-            } else { console.warn("Portfolio filter elements not found."); }
-
-            const revealElements = document.querySelectorAll('.section-heading-alt, .portfolio-heading, .portfolio-item-alt, #about p, #services > div > div, #contact > div > div:not(:has(form)), #contact form'); 
-
-            if (revealElements.length > 0 && "IntersectionObserver" in window) {
-                const observer = new IntersectionObserver((entries, observerInstance) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) { 
-                            entry.target.classList.add('fade-in'); 
-                            observerInstance.unobserve(entry.target); 
-                         }
-                    });
-                }, { threshold: 0.1 }); 
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuButton = document.querySelector('nav button');
+        const closeMenu = document.getElementById('closeMenu');
+        
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = '';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Portfolio filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active-filter'));
                 
-                revealElements.forEach(el => { 
-                    observer.observe(el); 
+                // Add active class to clicked button
+                button.classList.add('active-filter');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                portfolioItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
                 });
-
-            } else if (revealElements.length > 0) { 
-                revealElements.forEach(el => el.style.opacity = 1); 
-            }
-
-            const contactForm = document.getElementById('contact-form');
-             if (contactForm) { console.log("Contact form found. Netlify handling enabled via HTML attributes."); }
+            });
+        });
+        
+        // Set 'All' as active by default
+        document.querySelector('.filter-btn[data-filter="all"]').classList.add('active-filter');
+        
+        // Scroll fade-in animation
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const checkFade = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        
+        // Check on load
+        window.addEventListener('load', checkFade);
+        
+        // Check on scroll
+        window.addEventListener('scroll', checkFade);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Simple form submission (would need backend integration for actual functionality)
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
         });
     </script>
 </body>
