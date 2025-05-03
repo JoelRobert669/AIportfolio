@@ -13,7 +13,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"> 
-    <!-- Added more weights -->
     <style>
         body { 
             font-family: 'Montserrat', sans-serif; 
@@ -54,9 +53,15 @@
              @apply max-w-7xl mx-auto px-6 md:px-10;
         }
 
-        /* Fade-in remains the same */
-        .fade-in { animation: fadeIn 0.8s ease-in; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        /* Fade-in Animation Definition */
+        /* NOTE: Elements start hidden *only* via this animation's 'from' state when the class is added */
+        .fade-in { 
+            animation: fadeIn 0.8s ease-in forwards; /* Add 'forwards' to keep state */
+         }
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(20px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
 
     </style>
 </head>
@@ -80,10 +85,8 @@
         <!-- Hero Section -->
         <header class="min-h-screen flex items-center justify-center text-center bg-gradient-to-b from-black via-gray-900 to-black">
             <div class="container-alt py-24 md:py-32">
-                <h1 class="hero-title-main mb-4">JOEL ROBERT</h1>
-                <p class="text-lg md:text-xl font-light tracking-widest text-gray-300 uppercase">AI Visual Designer</p>
-                 <!-- Optional: Add a very subtle background visual element if desired -->
-                 <!-- <div class="absolute inset-0 opacity-5 bg-cover bg-center" style="background-image: url('sorted_port/your-subtle-bg.webp');"></div> -->
+                <h1 class="hero-title-main mb-4 fade-in">JOEL ROBERT</h1> <!-- Added fade-in here directly for initial load -->
+                <p class="text-lg md:text-xl font-light tracking-widest text-gray-300 uppercase fade-in" style="animation-delay: 0.2s;">AI Visual Designer</p>
             </div>
         </header>
 
@@ -108,6 +111,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-12"> 
                     
                     <!-- Add items here, using the new structure -->
+                    <!-- NOTE: The 'fade-in' class will be added by JavaScript when scrolled into view -->
                     <div class="portfolio-item-alt" data-category="concept">
                         <img src="sorted_port/aliens.webp" alt="Futuristic city with giant alien entity">
                         <h3 class="portfolio-title">Celestial Visitor</h3>
@@ -120,7 +124,7 @@
                         <p class="portfolio-category">Action / Sports</p>
                     </div>
 
-                    <div class="portfolio-item-alt" data-category="illustration">
+                     <div class="portfolio-item-alt" data-category="illustration">
                         <img src="sorted_port/ILLUSTRATION.webp" alt="Four panel comic strip about filmmaking">
                         <h3 class="portfolio-title">Filmmaking Comic</h3>
                         <p class="portfolio-category">Illustration / Comic</p>
@@ -168,29 +172,34 @@
                         <p class="portfolio-category">Illustration / Storyboard</p>
                     </div>
                     
-                    <!-- Add the rest of your portfolio items using this structure -->
-                    <!-- Example: -->
-                    <!-- 
-                    <div class="portfolio-item-alt" data-category="[category]">
-                        <img src="sorted_port/[your-filename].webp" alt="[Descriptive Alt Text]">
-                        <h3 class="portfolio-title">[Your Project Title]</h3>
-                        <p class="portfolio-category">[Category / Type]</p>
-                    </div> 
-                    -->
-                    
-                     <!-- Continue adding all your other images here... -->
-                     <!-- MAKE SURE TO ADD ALL OF THEM -->
-                     <div class="portfolio-item-alt" data-category="product"> <img src="sorted_port/glasses.webp" alt="Aviator sunglasses on beach"><h3 class="portfolio-title">Beach Vision</h3><p class="portfolio-category">Product</p></div>
-                     <div class="portfolio-item-alt" data-category="concept"> <img src="sorted_port/hero1.webp" alt="Superman figure in space"><h3 class="portfolio-title">Cosmic Hero</h3><p class="portfolio-category">Concept Art</p></div>
-                     <div class="portfolio-item-alt" data-category="scene"> <img src="sorted_port/movie5.webp" alt="Soldier watching explosion"><h3 class="portfolio-title">Distant Threat</h3><p class="portfolio-category">Scene</p></div>
-                     <div class="portfolio-item-alt" data-category="product"> <img src="sorted_port/watch.webp" alt="Wristwatch on leather"><h3 class="portfolio-title">Timeless Piece</h3><p class="portfolio-category">Product</p></div>
-                     <div class="portfolio-item-alt" data-category="action"> <img src="sorted_port/bike2.webp" alt="Motocross start line"><h3 class="portfolio-title">Starting Gate</h3><p class="portfolio-category">Action</p></div>
-                      <div class="portfolio-item-alt" data-category="character"> <img src="sorted_port/joel.webp" alt="Pilot Joel"><h3 class="portfolio-title">Pilot Joel</h3><p class="portfolio-category">Character</p></div>
-                      <div class="portfolio-item-alt" data-category="illustration"> <img src="sorted_port/illustrastion4.webp" alt="Romance comic panels"><h3 class="portfolio-title">Romance Panels</h3><p class="portfolio-category">Illustration</p></div>
-                     <div class="portfolio-item-alt" data-category="concept"> <img src="sorted_port/temple1.webp" alt="Arasan Bakery 3D scene"><h3 class="portfolio-title">Arasan Bakery 3D</h3><p class="portfolio-category">Concept Art</p></div>
-                    
-                    <!-- ... make sure all images from your list are included ... -->
-
+                    <div class="portfolio-item-alt" data-category="product"> <img src="sorted_port/glasses.webp" alt="Aviator sunglasses on beach"><h3 class="portfolio-title">Beach Vision</h3><p class="portfolio-category">Product</p></div>
+                    <div class="portfolio-item-alt" data-category="concept"> <img src="sorted_port/hero1.webp" alt="Superman figure in space"><h3 class="portfolio-title">Cosmic Hero</h3><p class="portfolio-category">Concept Art</p></div>
+                    <div class="portfolio-item-alt" data-category="scene"> <img src="sorted_port/movie5.webp" alt="Soldier watching explosion"><h3 class="portfolio-title">Distant Threat</h3><p class="portfolio-category">Scene</p></div>
+                    <div class="portfolio-item-alt" data-category="product"> <img src="sorted_port/watch.webp" alt="Wristwatch on leather"><h3 class="portfolio-title">Timeless Piece</h3><p class="portfolio-category">Product</p></div>
+                    <div class="portfolio-item-alt" data-category="action"> <img src="sorted_port/bike2.webp" alt="Motocross start line"><h3 class="portfolio-title">Starting Gate</h3><p class="portfolio-category">Action</p></div>
+                    <div class="portfolio-item-alt" data-category="character"> <img src="sorted_port/joel.webp" alt="Pilot Joel"><h3 class="portfolio-title">Pilot Joel</h3><p class="portfolio-category">Character</p></div>
+                    <div class="portfolio-item-alt" data-category="illustration"> <img src="sorted_port/illustrastion4.webp" alt="Romance comic panels"><h3 class="portfolio-title">Romance Panels</h3><p class="portfolio-category">Illustration</p></div>
+                    <div class="portfolio-item-alt" data-category="concept"> <img src="sorted_port/temple1.webp" alt="Arasan Bakery 3D scene"><h3 class="portfolio-title">Arasan Bakery 3D</h3><p class="portfolio-category">Concept Art</p></div>
+                    <div class="portfolio-item-alt" data-category="character"> <img src="sorted_port/charecter test2.webp" alt="Woman smiling brightly in field of flowers"><h3 class="portfolio-title">Spring Reverie</h3><p class="portfolio-category">Character Design</p></div>
+                    <div class="portfolio-item-alt" data-category="concept"> <img src="sorted_port/city1.webp" alt="Aerial view of city highway at dusk"><h3 class="portfolio-title">Urban Flow</h3><p class="portfolio-category">Concept Art / Environment</p></div>
+                    <div class="portfolio-item-alt" data-category="concept"> <img src="sorted_port/epic1.webp" alt="Warrior on dusty chariot in golden light"><h3 class="portfolio-title">Heroic Ride</h3><p class="portfolio-category">Concept Art / Historical</p></div>
+                    <div class="portfolio-item-alt" data-category="concept"> <img src="sorted_port/epic4.webp" alt="Warrior on chariot with four horses against large sun"><h3 class="portfolio-title">Solar Chariot</h3><p class="portfolio-category">Concept Art / Mythological</p></div>
+                    <div class="portfolio-item-alt" data-category="concept"> <img src="sorted_port/epic5.webp" alt="Silhouette of ancient chariot against sunset"><h3 class="portfolio-title">Sunset Charge</h3><p class="portfolio-category">Concept Art / Historical</p></div>
+                    <div class="portfolio-item-alt" data-category="concept"> <img src="sorted_port/epic6.webp" alt="Ancient chariot with flames against golden sky"><h3 class="portfolio-title">Flaming Chariot</h3><p class="portfolio-category">Concept Art / Fantasy</p></div>
+                    <div class="portfolio-item-alt" data-category="concept"> <img src="sorted_port/hill2.webp" alt="Sunset over mountain valley city"><h3 class="portfolio-title">Valley Sunset</h3><p class="portfolio-category">Concept Art / Landscape</p></div>
+                    <div class="portfolio-item-alt" data-category="scene"> <img src="sorted_port/epic3.webp" alt="Figure entering grand royal court hall"><h3 class="portfolio-title">Royal Audience</h3><p class="portfolio-category">Scene / Storyboard</p></div>
+                    <div class="portfolio-item-alt" data-category="scene"> <img src="sorted_port/movie1.webp" alt="Musicians playing instruments on boat on lake"><h3 class="portfolio-title">Lakeside Serenade</h3><p class="portfolio-category">Scene / Storyboard</p></div>
+                    <div class="portfolio-item-alt" data-category="scene"> <img src="sorted_port/movie2.webp" alt="Couple sitting closely on park bench at sunset"><h3 class="portfolio-title">Park Bench Romance</h3><p class="portfolio-category">Scene / Storyboard</p></div>
+                    <div class="portfolio-item-alt" data-category="scene"> <img src="sorted_port/movie3.webp" alt="Man in winter gear looking at explosion over ice"><h3 class="portfolio-title">Arctic Incident</h3><p class="portfolio-category">Scene / Storyboard</p></div>
+                    <div class="portfolio-item-alt" data-category="scene"> <img src="sorted_port/movie4.webp" alt="Man looking intensely towards fire background"><h3 class="portfolio-title">Facing Calamity</h3><p class="portfolio-category">Scene / Storyboard</p></div>
+                    <div class="portfolio-item-alt" data-category="character"> <img src="sorted_port/self1.webp" alt="Pilot named Amal looking back by fighter jet at sunset"><h3 class="portfolio-title">Pilot Amal</h3><p class="portfolio-category">Character Design / Aviation</p></div>
+                    <div class="portfolio-item-alt" data-category="character"> <img src="sorted_port/self3.webp" alt="Man reading book by fireplace"><h3 class="portfolio-title">Cozy Evening</h3><p class="portfolio-category">Character / Scene</p></div>
+                    <div class="portfolio-item-alt" data-category="scene"> <img src="sorted_port/stage1.webp" alt="Audience members watching intently in theater"><h3 class="portfolio-title">Captivated Audience</h3><p class="portfolio-category">Scene / Storyboard</p></div>
+                    <div class="portfolio-item-alt" data-category="illustration"> <img src="sorted_port/temple2.webp" alt="Colorful line doodle illustration of Tamil Nadu"><h3 class="portfolio-title">Tamil Nadu Doodle</h3><p class="portfolio-category">Illustration / Cultural</p></div>
+                    <div class="portfolio-item-alt" data-category="illustration"> <img src="sorted_port/tiger1.webp" alt="Cute cartoon tiger leaping playfully"><h3 class="portfolio-title">Playful Tiger</h3><p class="portfolio-category">Illustration / Character</p></div>
+                    <div class="portfolio-item-alt" data-category="action"> <img src="sorted_port/bike4.webp" alt="Lineup of motocross bikes and mechanics in garage"><h3 class="portfolio-title">Race Prep</h3><p class="portfolio-category">Scene / Action</p></div>
+                    <div class="portfolio-item-alt" data-category="action"> <img src="sorted_port/bike3.webp" alt="Motocross team member at command center screens"><h3 class="portfolio-title">Race Command</h3><p class="portfolio-category">Scene / Action</p></div>
+                    <div class="portfolio-item-alt" data-category="action"> <img src="sorted_port/bikemeet.webp" alt="Two motocross riders with bikes under spotlights"><h3 class="portfolio-title">Night Riders</h3><p class="portfolio-category">Action / Sports</p></div>
 
                 </div> 
             </div>
@@ -241,7 +250,6 @@
                          <p class="font-semibold">Client Name</p>
                          <p class="text-sm text-gray-500">Role, Company</p>
                     </div>
-                     <!-- Add more testimonials here, maybe use a slider library later -->
                  </div>
             </div>
         </section>
@@ -301,13 +309,14 @@
          </div>
     </footer>
 
+    <!-- *** CORRECTED SCRIPT SECTION *** -->
     <script>
          document.addEventListener('DOMContentLoaded', function() {
             // --- Portfolio Filtering ---
             const filterBtns = document.querySelectorAll('.category-btn');
-            const portfolioItems = document.querySelectorAll('.portfolio-item-alt'); // Updated class
-            const portfolioGrid = document.querySelector('.grid'); // Select the grid container
-            
+            const portfolioItems = document.querySelectorAll('.portfolio-item-alt'); 
+            const portfolioGrid = document.querySelector('.grid'); // Select the grid container for portfolio items
+
             if (filterBtns.length > 0 && portfolioItems.length > 0 && portfolioGrid) { 
                 filterBtns.forEach(btn => {
                     btn.addEventListener('click', () => {
@@ -318,31 +327,37 @@
                         // Apply filtering logic
                         portfolioItems.forEach(item => {
                             const itemCategory = item.getAttribute('data-category');
-                             // Use Tailwind classes for hiding/showing if preferred
-                             // item.classList.toggle('hidden', !(filterValue === 'all' || filterValue === itemCategory));
                             item.style.display = (filterValue === 'all' || filterValue === itemCategory) ? 'block' : 'none'; 
                         });
                     });
                 });
             } else { console.warn("Portfolio filter elements not found."); }
 
-            // --- Basic Scroll Reveal --- // Reuse previous logic if desired
-             const revealElements = document.querySelectorAll('.section-heading-alt, .portfolio-item-alt, #about p, #services > div > div, .testimonial-item, #contact > div > div'); // Select elements to fade in
+            // --- Basic Scroll Reveal ---
+            // Select all elements you want to animate
+            const revealElements = document.querySelectorAll('.section-heading-alt, .portfolio-item-alt, #about p, #services > div > div, .testimonial-item, #contact > div > div:not(:has(form)), #contact form'); // Refined selection
+
             if (revealElements.length > 0 && "IntersectionObserver" in window) {
                 const observer = new IntersectionObserver((entries, observerInstance) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) { 
-                            entry.target.classList.add('fade-in');
-                            observerInstance.unobserve(entry.target); 
+                            entry.target.classList.add('fade-in'); // Add class to trigger CSS animation
+                            observerInstance.unobserve(entry.target); // Stop observing once animated
                          }
                     });
-                }, { threshold: 0.05 }); // Trigger earlier
+                }, { 
+                    threshold: 0.1 // Adjust visibility threshold (e.g., 0.1 = 10% visible)
+                 }); 
+                
                 revealElements.forEach(el => { 
-                     el.style.opacity = 0; // Start hidden if using JS fade-in
-                     observer.observe(el); 
+                    // IMPORTANT: DO NOT set el.style.opacity = 0 here. Let CSS handle it via the .fade-in class.
+                    observer.observe(el); // Start observing the element
                 });
-            } else if (revealElements.length > 0) { revealElements.forEach(el => el.style.opacity = 1); }
 
+            } else if (revealElements.length > 0) { 
+                // Fallback for older browsers: Just make sure elements are visible
+                revealElements.forEach(el => el.style.opacity = 1); 
+            }
 
              // --- Contact Form Handling (Simplified for Netlify) ---
             const contactForm = document.getElementById('contact-form');
