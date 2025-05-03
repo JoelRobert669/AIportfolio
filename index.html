@@ -34,7 +34,6 @@
         .masonry-grid { column-count: 3; column-gap: 20px; }
         @media (max-width: 1024px) { .masonry-grid { column-count: 2; } }
         @media (max-width: 640px) { .masonry-grid { column-count: 1; } .hero-title { font-size: 3rem; } }
-        /* Ensure images display correctly */
         .portfolio-item img { display: block; width: 100%; height: auto; } 
     </style>
 </head>
@@ -42,49 +41,38 @@
     <main class="portfolio-container px-4 md:px-8">
         <!-- Header Section -->
         <header class="min-h-screen flex items-center justify-center relative">
-            <!-- Background Initials -->
             <div class="absolute inset-0 opacity-20 flex items-center justify-center text-white overflow-hidden">
                 <div class="text-[200px] md:text-[400px] font-bold opacity-10 tracking-tighter">JR</div>
             </div>
-            
             <div class="z-10 flex flex-col md:flex-row items-center md:items-start justify-center w-full max-w-6xl">
                 <div class="w-full md:w-1/2 text-center md:text-left mb-10 md:mb-0">
                     <div class="title-block">
                         <h1 class="hero-title mb-4">JOEL<br>ROBERT</h1>
                         <h2 class="text-xl md:text-2xl font-light tracking-widest mb-6">AI DESIGNER</h2>
                     </div>
-                     <!-- *** UPDATE YOUR INTRO TEXT *** -->
                     <p class="text-lg md:text-xl mt-8 max-w-lg opacity-80">
                         Visualizing worlds, characters, and concepts through the fusion of artificial intelligence and artistic direction. Specializing in concept art, character design, and dynamic scene creation.
                     </p>
                 </div>
-                
                 <div class="w-full md:w-1/2 relative overflow-hidden h-80 md:h-auto">
-                    <!-- *** HERO IMAGE - MAKE SURE FILENAME MATCHES *** -->
-                    <img src="sorted_port/scifi-alien-landscape.webp" alt="Sci-fi concept art showing futuristic city and large alien entity" class="w-full h-full object-cover"> 
+                    <!-- *** HERO IMAGE - Using your filename *** -->
+                    <img src="sorted_port/aliens.webp" alt="Sci-fi concept art showing futuristic city and large alien entity" class="w-full h-full object-cover"> 
                 </div>
             </div>
         </header>
 
         <!-- About Section -->
         <section id="about" class="py-20 my-10">
-             <!-- *** UPDATE ALL ABOUT SECTION TEXT *** -->
             <div class="max-w-5xl mx-auto">
                 <h2 class="section-heading text-4xl md:text-5xl font-bold mb-16">ABOUT</h2>
+                <!-- *** CUSTOMIZE ABOUT TEXT *** -->
                 <div class="flex flex-col md:flex-row gap-12 items-center">
-                    <div class="w-full md:w-1/2">
-                        <p class="text-lg leading-relaxed mb-6">
-                            I'm Joel Robert, an AI Designer crafting immersive visual experiences. My work blends cutting-edge AI with traditional design principles to create stunning imagery for film, games, and branding.
-                        </p>
-                        <p class="text-lg leading-relaxed mb-6">
-                            With expertise in concept art, storyboarding, character design, and dynamic action sequences, I transform ideas into visual narratives that captivate and inspire.
-                        </p>
-                         <p class="text-lg leading-relaxed">
-                            Let's explore the creative frontiers of AI together.
-                        </p>
+                     <div class="w-full md:w-1/2">
+                        <p class="text-lg leading-relaxed mb-6">I'm Joel Robert, an AI Designer crafting immersive visual experiences. My work blends cutting-edge AI with traditional design principles to create stunning imagery for film, games, and branding.</p>
+                        <p class="text-lg leading-relaxed mb-6">With expertise in concept art, storyboarding, character design, and dynamic action sequences, I transform ideas into visual narratives that captivate and inspire.</p>
+                        <p class="text-lg leading-relaxed">Let's explore the creative frontiers of AI together.</p>
                     </div>
                     <div class="w-full md:w-1/2 grid grid-cols-2 gap-4">
-                         <!-- *** UPDATE YOUR SKILLS/SERVICES *** -->
                         <div class="p-6 border border-gray-800 bg-black bg-opacity-50"><h3 class="text-2xl font-bold mb-3">Concept Art</h3><p class="opacity-70">Environments, Sci-Fi, Fantasy</p></div>
                         <div class="p-6 border border-gray-800 bg-black bg-opacity-50"><h3 class="text-2xl font-bold mb-3">Storyboarding</h3><p class="opacity-70">Action, Drama, Narrative</p></div>
                         <div class="p-6 border border-gray-800 bg-black bg-opacity-50"><h3 class="text-2xl font-bold mb-3">Character Design</h3><p class="opacity-70">Portraits, Concepts, Styling</p></div>
@@ -98,168 +86,171 @@
         <section id="portfolio" class="py-10">
             <div class="max-w-7xl mx-auto">
                 <h2 class="section-heading text-4xl md:text-5xl font-bold mb-16">PORTFOLIO</h2>
-                
                 <!-- Portfolio Filters -->
                 <div class="flex flex-wrap justify-start gap-8 mb-16">
                     <button class="category-btn active text-lg font-light tracking-wider" data-category="all">ALL WORK</button>
                     <button class="category-btn text-lg font-light tracking-wider" data-category="concept">CONCEPT ART</button>
                     <button class="category-btn text-lg font-light tracking-wider" data-category="action">ACTION / SPORTS</button>
                     <button class="category-btn text-lg font-light tracking-wider" data-category="character">CHARACTER</button>
-                     <button class="category-btn text-lg font-light tracking-wider" data-category="scene">SCENE / STORYBOARD</button>
-                     <button class="category-btn text-lg font-light tracking-wider" data-category="product">PRODUCT</button>
-                     <button class="category-btn text-lg font-light tracking-wider" data-category="illustration">ILLUSTRATION</button>
+                    <button class="category-btn text-lg font-light tracking-wider" data-category="scene">SCENE / STORYBOARD</button>
+                    <button class="category-btn text-lg font-light tracking-wider" data-category="product">PRODUCT</button>
+                    <button class="category-btn text-lg font-light tracking-wider" data-category="illustration">ILLUSTRATION</button>
                 </div>
                 
                 <!-- Portfolio Grid -->
-                <!-- *** VERIFY THESE FILENAMES MATCH YOURS IN 'sorted_port' FOLDER *** -->
+                <!-- *** Using YOUR filenames from the screenshot *** -->
                 <!-- *** CUSTOMIZE Titles & Descriptions below *** -->
                 <div class="masonry-grid">
 
-                    <!-- Concept Art -->
-                    <div class="grid-item portfolio-item" data-category="concept">
-                        <img src="sorted_port/scifi-alien-landscape.webp" alt="Futuristic city with giant alien entity in cosmic sky" class="w-full"> 
-                        <div class="portfolio-overlay"><h3 class="text-xl font-bold">Celestial Visitor</h3><p class="opacity-70">Concept Art / Sci-Fi</p></div>
-                    </div>
-                     <div class="grid-item portfolio-item" data-category="concept">
-                        <img src="sorted_port/city-aerial-dusk.webp" alt="Aerial view of city highway at dusk" class="w-full">
-                        <div class="portfolio-overlay"><h3 class="text-xl font-bold">Urban Flow</h3><p class="opacity-70">Concept Art / Environment</p></div>
-                    </div>
-                     <div class="grid-item portfolio-item" data-category="concept">
-                        <img src="sorted_port/chariot-epic-dust.webp" alt="Warrior on dusty chariot in golden light" class="w-full"> 
-                        <div class="portfolio-overlay"><h3 class="text-xl font-bold">Heroic Ride</h3><p class="opacity-70">Concept Art / Historical</p></div>
-                    </div>
-                    <div class="grid-item portfolio-item" data-category="concept">
-                        <img src="sorted_port/chariot-sun.webp" alt="Warrior on chariot with four horses against large sun" class="w-full"> 
-                        <div class="portfolio-overlay"><h3 class="text-xl font-bold">Solar Chariot</h3><p class="opacity-70">Concept Art / Mythological</p></div>
-                    </div>
-                    <div class="grid-item portfolio-item" data-category="concept">
-                        <img src="sorted_port/chariot-flaming.webp" alt="Ancient chariot with flames against golden sky" class="w-full"> 
-                        <div class="portfolio-overlay"><h3 class="text-xl font-bold">Flaming Chariot</h3><p class="opacity-70">Concept Art / Fantasy</p></div>
-                    </div>
-                     <div class="grid-item portfolio-item" data-category="concept">
-                        <img src="sorted_port/superman-dog-space.webp" alt="Superman-like figure floating in space above dog on rock" class="w-full"> 
-                        <div class="portfolio-overlay"><h3 class="text-xl font-bold">Cosmic Hero</h3><p class="opacity-70">Concept Art / Fantasy</p></div>
-                    </div>
-                    <div class="grid-item portfolio-item" data-category="concept">
-                        <img src="sorted_port/mountain-temple-clouds.webp" alt="Temple on mountain cliff above clouds at sunset" class="w-full"> 
-                        <div class="portfolio-overlay"><h3 class="text-xl font-bold">Temple Above Clouds</h3><p class="opacity-70">Concept Art / Landscape</p></div>
-                    </div>
-                    <div class="grid-item portfolio-item" data-category="concept">
-                        <img src="sorted_port/mountain-valley-sunset.webp" alt="Sunset over mountain valley city" class="w-full"> 
-                        <div class="portfolio-overlay"><h3 class="text-xl font-bold">Valley Sunset</h3><p class="opacity-70">Concept Art / Landscape</p></div>
-                    </div>
-                     <div class="grid-item portfolio-item" data-category="concept">
-                        <img src="sorted_port/arasan-bakery-3d.webp" alt="3D cartoon scene of Arasan Bakery by water" class="w-full"> 
-                        <div class="portfolio-overlay"><h3 class="text-xl font-bold">Arasan Bakery 3D</h3><p class="opacity-70">Concept Art / Animation</p></div>
-                    </div>
-
                     <!-- Action / Sports -->
-                     <div class="grid-item portfolio-item" data-category="action">
-                        <img src="sorted_port/motocross-sand-kickup.webp" alt="Motocross rider kicking up sand" class="w-full">
+                    <div class="grid-item portfolio-item" data-category="action">
+                        <img src="sorted_port/bike5.webp" alt="Motocross rider racing through muddy forest" class="w-full">
+                        <div class="portfolio-overlay"><h3 class="text-xl font-bold">Mud Splatter</h3><p class="opacity-70">Action / Sports</p></div>
+                    </div>
+                    <div class="grid-item portfolio-item" data-category="action">
+                        <img src="sorted_port/bike6.webp" alt="Motocross rider kicking up sand" class="w-full">
                         <div class="portfolio-overlay"><h3 class="text-xl font-bold">Desert Kick-up</h3><p class="opacity-70">Action / Sports</p></div>
                     </div>
                     <div class="grid-item portfolio-item" data-category="action">
-                        <img src="sorted_port/motocross-mud-forest.webp" alt="Motocross rider racing through muddy forest" class="w-full">
-                        <div class="portfolio-overlay"><h3 class="text-xl font-bold">Mud Splatter</h3><p class="opacity-70">Action / Sports</p></div>
-                    </div>
-                     <div class="grid-item portfolio-item" data-category="action">
-                        <img src="sorted_port/motocross-starting-line.webp" alt="Motocross racers lined up at starting gate at night" class="w-full">
+                        <img src="sorted_port/bike2.webp" alt="Motocross racers lined up at starting gate at night" class="w-full">
                         <div class="portfolio-overlay"><h3 class="text-xl font-bold">Starting Gate</h3><p class="opacity-70">Action / Sports</p></div>
                     </div>
-                    <div class="grid-item portfolio-item" data-category="action">
-                        <img src="sorted_port/motocross-garage-lineup.webp" alt="Lineup of motocross bikes and mechanics in garage" class="w-full">
+                     <div class="grid-item portfolio-item" data-category="action">
+                        <img src="sorted_port/bike4.webp" alt="Lineup of motocross bikes and mechanics in garage" class="w-full">
                         <div class="portfolio-overlay"><h3 class="text-xl font-bold">Race Prep</h3><p class="opacity-70">Scene / Action</p></div>
                     </div>
                      <div class="grid-item portfolio-item" data-category="action">
-                        <img src="sorted_port/motocross-command-center.webp" alt="Motocross team member at command center screens" class="w-full">
+                        <img src="sorted_port/bike3.webp" alt="Motocross team member at command center screens" class="w-full">
                         <div class="portfolio-overlay"><h3 class="text-xl font-bold">Race Command</h3><p class="opacity-70">Scene / Action</p></div>
                     </div>
                      <div class="grid-item portfolio-item" data-category="action">
-                        <img src="sorted_port/motocross-night-team.webp" alt="Two motocross riders with bikes under spotlights" class="w-full">
+                        <img src="sorted_port/bikemeet.webp" alt="Two motocross riders with bikes under spotlights" class="w-full">
                         <div class="portfolio-overlay"><h3 class="text-xl font-bold">Night Riders</h3><p class="opacity-70">Action / Sports</p></div>
                     </div>
 
                     <!-- Character -->
                     <div class="grid-item portfolio-item" data-category="character">
-                        <img src="sorted_port/woman-saree-flowers.webp" alt="Woman in floral saree smiling in field of flowers" class="w-full">
+                        <img src="sorted_port/charecter test1.webp" alt="Woman in floral saree smiling in field of flowers" class="w-full"> <!-- Note: Uses your filename typo -->
                         <div class="portfolio-overlay"><h3 class="text-xl font-bold">Floral Elegance</h3><p class="opacity-70">Character Design</p></div>
                     </div>
                      <div class="grid-item portfolio-item" data-category="character">
-                        <img src="sorted_port/woman-flowers-smile.webp" alt="Woman smiling brightly in field of flowers" class="w-full">
+                        <img src="sorted_port/charecter test2.webp" alt="Woman smiling brightly in field of flowers" class="w-full"> <!-- Note: Uses your filename typo -->
                         <div class="portfolio-overlay"><h3 class="text-xl font-bold">Spring Reverie</h3><p class="opacity-70">Character Design</p></div>
                     </div>
-                     <div class="grid-item portfolio-item" data-category="character">
-                        <img src="sorted_port/pilot-joel.webp" alt="Pilot named Joel standing by fighter jet at sunset" class="w-full">
+                    <div class="grid-item portfolio-item" data-category="character">
+                        <img src="sorted_port/joel.webp" alt="Pilot named Joel standing by fighter jet at sunset" class="w-full">
                         <div class="portfolio-overlay"><h3 class="text-xl font-bold">Pilot Joel</h3><p class="opacity-70">Character Design / Aviation</p></div>
                     </div>
                     <div class="grid-item portfolio-item" data-category="character">
-                        <img src="sorted_port/pilot-amal.webp" alt="Pilot named Amal looking back by fighter jet at sunset" class="w-full">
+                        <img src="sorted_port/self1.webp" alt="Pilot named Amal looking back by fighter jet at sunset" class="w-full">
                         <div class="portfolio-overlay"><h3 class="text-xl font-bold">Pilot Amal</h3><p class="opacity-70">Character Design / Aviation</p></div>
                     </div>
-                    <div class="grid-item portfolio-item" data-category="character">
-                        <img src="sorted_port/man-portrait-close.webp" alt="Intense close-up portrait of man with striking eyes" class="w-full">
+                     <div class="grid-item portfolio-item" data-category="character">
+                        <img src="sorted_port/man1.webp" alt="Intense close-up portrait of man with striking eyes" class="w-full">
                         <div class="portfolio-overlay"><h3 class="text-xl font-bold">Intense Gaze</h3><p class="opacity-70">Character Design / Portrait</p></div>
                     </div>
                      <div class="grid-item portfolio-item" data-category="character">
-                        <img src="sorted_port/man-reading-fireplace.webp" alt="Man reading book by fireplace" class="w-full"> 
+                        <img src="sorted_port/self3.webp" alt="Man reading book by fireplace" class="w-full"> 
                         <div class="portfolio-overlay"><h3 class="text-xl font-bold">Cozy Evening</h3><p class="opacity-70">Character / Scene</p></div>
+                    </div>
+                   
+                    <!-- Concept Art -->
+                     <div class="grid-item portfolio-item" data-category="concept">
+                        <img src="sorted_port/city1.webp" alt="Aerial view of city highway at dusk" class="w-full">
+                        <div class="portfolio-overlay"><h3 class="text-xl font-bold">Urban Flow</h3><p class="opacity-70">Concept Art / Environment</p></div>
+                    </div>
+                    <div class="grid-item portfolio-item" data-category="concept">
+                        <img src="sorted_port/epic1.webp" alt="Warrior on dusty chariot in golden light" class="w-full"> 
+                        <div class="portfolio-overlay"><h3 class="text-xl font-bold">Heroic Ride</h3><p class="opacity-70">Concept Art / Historical</p></div>
+                    </div>
+                     <div class="grid-item portfolio-item" data-category="concept">
+                        <img src="sorted_port/epic4.webp" alt="Warrior on chariot with four horses against large sun" class="w-full"> 
+                        <div class="portfolio-overlay"><h3 class="text-xl font-bold">Solar Chariot</h3><p class="opacity-70">Concept Art / Mythological</p></div>
+                    </div>
+                     <div class="grid-item portfolio-item" data-category="concept">
+                        <img src="sorted_port/epic5.webp" alt="Silhouette of ancient chariot against sunset" class="w-full"> 
+                        <div class="portfolio-overlay"><h3 class="text-xl font-bold">Sunset Charge</h3><p class="opacity-70">Concept Art / Historical</p></div>
+                    </div>
+                    <div class="grid-item portfolio-item" data-category="concept">
+                        <img src="sorted_port/epic6.webp" alt="Ancient chariot with flames against golden sky" class="w-full"> 
+                        <div class="portfolio-overlay"><h3 class="text-xl font-bold">Flaming Chariot</h3><p class="opacity-70">Concept Art / Fantasy</p></div>
+                    </div>
+                    <div class="grid-item portfolio-item" data-category="concept">
+                        <img src="sorted_port/hero1.webp" alt="Superman-like figure floating in space above dog on rock" class="w-full"> 
+                        <div class="portfolio-overlay"><h3 class="text-xl font-bold">Cosmic Hero</h3><p class="opacity-70">Concept Art / Fantasy</p></div>
+                    </div>
+                     <div class="grid-item portfolio-item" data-category="concept">
+                        <img src="sorted_port/hill1.webp" alt="Temple on mountain cliff above clouds at sunset" class="w-full"> 
+                        <div class="portfolio-overlay"><h3 class="text-xl font-bold">Temple Above Clouds</h3><p class="opacity-70">Concept Art / Landscape</p></div>
+                    </div>
+                     <div class="grid-item portfolio-item" data-category="concept">
+                        <img src="sorted_port/hill2.webp" alt="Sunset over mountain valley city" class="w-full"> 
+                        <div class="portfolio-overlay"><h3 class="text-xl font-bold">Valley Sunset</h3><p class="opacity-70">Concept Art / Landscape</p></div>
+                    </div>
+                    <div class="grid-item portfolio-item" data-category="concept">
+                        <img src="sorted_port/temple1.webp" alt="3D cartoon scene of Arasan Bakery by water" class="w-full"> 
+                        <div class="portfolio-overlay"><h3 class="text-xl font-bold">Arasan Bakery 3D</h3><p class="opacity-70">Concept Art / Animation</p></div>
+                    </div>
+                     <div class="grid-item portfolio-item" data-category="concept">
+                        <img src="sorted_port/aliens.webp" alt="Futuristic city with giant alien entity in cosmic sky" class="w-full"> 
+                        <div class="portfolio-overlay"><h3 class="text-xl font-bold">Celestial Visitor</h3><p class="opacity-70">Concept Art / Sci-Fi</p></div>
                     </div>
 
                     <!-- Scene / Storyboard -->
                     <div class="grid-item portfolio-item" data-category="scene">
-                        <img src="sorted_port/royal-court-wide.webp" alt="Figure standing before king in ornate royal court" class="w-full">
+                        <img src="sorted_port/epic2.webp" alt="Figure standing before king in ornate royal court" class="w-full">
                         <div class="portfolio-overlay"><h3 class="text-xl font-bold">Before the Throne</h3><p class="opacity-70">Scene / Storyboard</p></div>
                     </div>
                     <div class="grid-item portfolio-item" data-category="scene">
-                        <img src="sorted_port/royal-court-entrance.webp" alt="Figure entering grand royal court hall" class="w-full">
+                        <img src="sorted_port/epic3.webp" alt="Figure entering grand royal court hall" class="w-full">
                         <div class="portfolio-overlay"><h3 class="text-xl font-bold">Royal Audience</h3><p class="opacity-70">Scene / Storyboard</p></div>
                     </div>
-                     <div class="grid-item portfolio-item" data-category="scene">
-                        <img src="sorted_port/musicians-boat-lake.webp" alt="Musicians playing instruments on boat on lake" class="w-full">
+                    <div class="grid-item portfolio-item" data-category="scene">
+                        <img src="sorted_port/movie1.webp" alt="Musicians playing instruments on boat on lake" class="w-full">
                         <div class="portfolio-overlay"><h3 class="text-xl font-bold">Lakeside Serenade</h3><p class="opacity-70">Scene / Storyboard</p></div>
                     </div>
                     <div class="grid-item portfolio-item" data-category="scene">
-                        <img src="sorted_port/couple-bench-park.webp" alt="Couple sitting closely on park bench at sunset" class="w-full">
+                        <img src="sorted_port/movie2.webp" alt="Couple sitting closely on park bench at sunset" class="w-full">
                         <div class="portfolio-overlay"><h3 class="text-xl font-bold">Park Bench Romance</h3><p class="opacity-70">Scene / Storyboard</p></div>
                     </div>
-                    <div class="grid-item portfolio-item" data-category="scene">
-                        <img src="sorted_port/man-watching-ice-explosion.webp" alt="Man in winter gear looking at explosion over ice" class="w-full">
+                     <div class="grid-item portfolio-item" data-category="scene">
+                        <img src="sorted_port/movie3.webp" alt="Man in winter gear looking at explosion over ice" class="w-full">
                         <div class="portfolio-overlay"><h3 class="text-xl font-bold">Arctic Incident</h3><p class="opacity-70">Scene / Storyboard</p></div>
                     </div>
                     <div class="grid-item portfolio-item" data-category="scene">
-                        <img src="sorted_port/man-watching-fire-close.webp" alt="Man looking intensely towards fire background" class="w-full">
+                        <img src="sorted_port/movie4.webp" alt="Man looking intensely towards fire background" class="w-full">
                         <div class="portfolio-overlay"><h3 class="text-xl font-bold">Facing Calamity</h3><p class="opacity-70">Scene / Storyboard</p></div>
                     </div>
                     <div class="grid-item portfolio-item" data-category="scene">
-                        <img src="sorted_port/soldier-watching-explosion.webp" alt="Soldier watching distant explosion at dusk" class="w-full">
+                        <img src="sorted_port/movie5.webp" alt="Soldier watching distant explosion at dusk" class="w-full">
                         <div class="portfolio-overlay"><h3 class="text-xl font-bold">Distant Threat</h3><p class="opacity-70">Scene / Storyboard</p></div>
                     </div>
-                    <div class="grid-item portfolio-item" data-category="scene">
-                        <img src="sorted_port/audience-watching.webp" alt="Audience members watching intently in theater" class="w-full">
+                     <div class="grid-item portfolio-item" data-category="scene">
+                        <img src="sorted_port/stage1.webp" alt="Audience members watching intently in theater" class="w-full">
                         <div class="portfolio-overlay"><h3 class="text-xl font-bold">Captivated Audience</h3><p class="opacity-70">Scene / Storyboard</p></div>
                     </div>
-
+                    
                     <!-- Product -->
-                     <div class="grid-item portfolio-item" data-category="product">
-                        <img src="sorted_port/spc-coffee-cups.webp" alt="Two men in suits holding SPC branded coffee cups" class="w-full">
+                    <div class="grid-item portfolio-item" data-category="product">
+                        <img src="sorted_port/cup1.webp" alt="Two men in suits holding SPC branded coffee cups" class="w-full">
                         <div class="portfolio-overlay"><h3 class="text-xl font-bold">Brand Mockup</h3><p class="opacity-70">Product / Branding</p></div>
                     </div>
-                    <div class="grid-item portfolio-item" data-category="product">
-                        <img src="sorted_port/sunglasses-beach.webp" alt="Aviator sunglasses resting on sand at beach" class="w-full">
+                     <div class="grid-item portfolio-item" data-category="product">
+                        <img src="sorted_port/glasses.webp" alt="Aviator sunglasses resting on sand at beach" class="w-full">
                         <div class="portfolio-overlay"><h3 class="text-xl font-bold">Beach Vision</h3><p class="opacity-70">Product Visualization</p></div>
                     </div>
                      <div class="grid-item portfolio-item" data-category="product">
-                        <img src="sorted_port/watch-leather.webp" alt="Close-up of wristwatch on leather surface" class="w-full">
+                        <img src="sorted_port/watch.webp" alt="Close-up of wristwatch on leather surface" class="w-full">
                         <div class="portfolio-overlay"><h3 class="text-xl font-bold">Timeless Piece</h3><p class="opacity-70">Product Visualization</p></div>
                     </div>
 
                     <!-- Illustration -->
                     <div class="grid-item portfolio-item" data-category="illustration">
-                        <img src="sorted_port/tamil-nadu-doodle.webp" alt="Colorful line doodle illustration of Tamil Nadu" class="w-full">
+                        <img src="sorted_port/temple2.webp" alt="Colorful line doodle illustration of Tamil Nadu" class="w-full">
                         <div class="portfolio-overlay"><h3 class="text-xl font-bold">Tamil Nadu Doodle</h3><p class="opacity-70">Illustration / Cultural</p></div>
                     </div>
-                     <div class="grid-item portfolio-item" data-category="illustration">
-                        <img src="sorted_port/cartoon-tiger.webp" alt="Cute cartoon tiger leaping playfully" class="w-full">
+                    <div class="grid-item portfolio-item" data-category="illustration">
+                        <img src="sorted_port/tiger1.webp" alt="Cute cartoon tiger leaping playfully" class="w-full">
                         <div class="portfolio-overlay"><h3 class="text-xl font-bold">Playful Tiger</h3><p class="opacity-70">Illustration / Character</p></div>
                     </div>
 
@@ -270,13 +261,11 @@
         <!-- Contact Section -->
         <section id="contact" class="py-20 my-10">
              <!-- *** UPDATE ALL CONTACT SECTION INFO (Email, Links, Form Action) *** -->
-            <div class="max-w-5xl mx-auto">
+             <div class="max-w-5xl mx-auto">
                 <h2 class="section-heading text-4xl md:text-5xl font-bold mb-16">CONTACT</h2>
                 <div class="flex flex-col md:flex-row gap-12">
                     <div class="w-full md:w-1/2">
-                        <p class="text-lg leading-relaxed mb-10">
-                            Interested in collaborating or discussing how AI-driven design can elevate your project? Let's connect.
-                        </p>
+                        <p class="text-lg leading-relaxed mb-10">Interested in collaborating or discussing how AI-driven design can elevate your project? Let's connect.</p>
                         <div class="space-y-6">
                              <div class="flex items-center gap-4">
                                 <div class="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center"> <i class="fas fa-envelope text-xl"></i> </div>
@@ -301,15 +290,14 @@
                     </div>
                     <div class="w-full md:w-1/2 border border-gray-800 p-8">
                         <h3 class="text-2xl font-bold mb-6">Send a Message</h3>
-                        <!-- *** IMPORTANT: Update form action for Netlify/Formspree etc. or implement JS submission *** -->
+                        <!-- Using Netlify form handling attributes -->
                         <form id="contact-form" class="space-y-6" name="contact" method="POST" data-netlify="true"> 
-                           <input type="hidden" name="form-name" value="contact"> <!-- Required for Netlify forms -->
+                           <input type="hidden" name="form-name" value="contact"> 
                             <div> <label for="name" class="block mb-2 text-sm font-medium">Your Name</label> <input type="text" id="name" name="name" class="bg-gray-900 border border-gray-800 text-white text-sm rounded-none block w-full p-3 focus:outline-none focus:border-white transition-colors" placeholder="Enter your name" required> </div>
                             <div> <label for="email" class="block mb-2 text-sm font-medium">Your Email</label> <input type="email" id="email" name="email" class="bg-gray-900 border border-gray-800 text-white text-sm rounded-none block w-full p-3 focus:outline-none focus:border-white transition-colors" placeholder="Enter your email" required> </div>
                             <div> <label for="message" class="block mb-2 text-sm font-medium">Message</label> <textarea id="message" name="message" rows="4" class="bg-gray-900 border border-gray-800 text-white text-sm rounded-none block w-full p-3 focus:outline-none focus:border-white transition-colors" placeholder="What would you like to discuss?" required></textarea> </div>
                             <button type="submit" class="w-full inline-flex justify-center py-3 px-5 text-base font-medium text-center text-black bg-white hover:bg-gray-200 focus:outline-none transition-colors"> SEND MESSAGE </button>
                         </form>
-                        <!-- Add a success message container (optional) -->
                          <p id="form-success" class="mt-4 text-green-400 hidden">Thanks for your message!</p>
                     </div>
                 </div>
@@ -320,7 +308,7 @@
     <!-- Footer -->
     <footer class="py-10 border-t border-gray-800">
          <!-- *** UPDATE Footer Text & Year *** -->
-        <div class="portfolio-container px-4 md:px-8">
+         <div class="portfolio-container px-4 md:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-6 md:mb-0"> <h2 class="text-2xl font-bold">JOEL ROBERT</h2> <p class="opacity-70">AI Designer • Visual Innovator</p> </div>
                 <div class="text-center md:text-right"> <p class="opacity-70">© 2024 Joel Robert. All rights reserved.</p> </div>
@@ -334,67 +322,49 @@
             const filterBtns = document.querySelectorAll('.category-btn');
             const portfolioItems = document.querySelectorAll('.portfolio-item');
             const masonryGrid = document.querySelector('.masonry-grid'); 
-            
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    const filterValue = btn.getAttribute('data-category');
-                    
-                    // Add slight delay for visual feedback if desired
-                    masonryGrid.style.opacity = 0.5; 
-                    setTimeout(() => { 
-                        portfolioItems.forEach(item => {
-                            const itemCategory = item.getAttribute('data-category');
-                            // Use 'block' for flex/grid items might be better, check CSS if needed
-                            item.style.display = (filterValue === 'all' || filterValue === itemCategory) ? 'block' : 'none'; 
-                        });
-                        masonryGrid.style.opacity = 1; 
-                        // Maybe re-layout masonry if library used? Not needed for pure CSS columns.
-                    }, 150); // Shorter delay
+            if (filterBtns.length > 0 && portfolioItems.length > 0 && masonryGrid) { // Check elements exist
+                filterBtns.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        filterBtns.forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        const filterValue = btn.getAttribute('data-category');
+                        masonryGrid.style.opacity = 0.5; 
+                        setTimeout(() => { 
+                            portfolioItems.forEach(item => {
+                                const itemCategory = item.getAttribute('data-category');
+                                item.style.display = (filterValue === 'all' || filterValue === itemCategory) ? 'block' : 'none'; 
+                            });
+                            masonryGrid.style.opacity = 1; 
+                        }, 150); 
+                    });
                 });
-            });
+            } else {
+                console.warn("Portfolio filter elements not found.");
+            }
 
             // --- Basic Scroll Reveal for Section Headings ---
             const revealElements = document.querySelectorAll('.section-heading');
-            if ("IntersectionObserver" in window) {
+            if (revealElements.length > 0 && "IntersectionObserver" in window) {
                 const observer = new IntersectionObserver((entries, observerInstance) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) { 
                             entry.target.classList.add('fade-in');
-                            observerInstance.unobserve(entry.target); // Optional: stop observing once visible
+                            observerInstance.unobserve(entry.target); 
                          }
                     });
                 }, { threshold: 0.1 }); 
                 revealElements.forEach(el => { observer.observe(el); });
-            } else {
-                 // Fallback for older browsers (optional) - just make them visible
-                 revealElements.forEach(el => el.style.opacity = 1);
+            } else if (revealElements.length > 0) {
+                 revealElements.forEach(el => el.style.opacity = 1); // Fallback
             }
 
-             // --- Contact Form Handling (Basic Example for Netlify) ---
-            // Netlify automatically handles forms with `data-netlify="true"` attribute
-            // This JS part is mostly for potential AJAX submission or custom feedback
+             // --- Contact Form Handling (Simplified for Netlify) ---
             const contactForm = document.getElementById('contact-form');
-            const successMessage = document.getElementById('form-success'); // Get success message element
-
-            if (contactForm) {
-                 contactForm.addEventListener('submit', function(e) {
-                    // Prevent default ONLY if you want to handle submission with JS (AJAX)
-                    // If using standard Netlify submission, DO NOT prevent default.
-                    // e.preventDefault(); // Uncomment this line for AJAX submission
-
-                    // Basic success feedback (if not using AJAX redirect)
-                    // You might need more robust handling for AJAX
-                    // setTimeout(() => { // Give time for form to potentially submit
-                    //     if (successMessage) successMessage.classList.remove('hidden');
-                    //     contactForm.reset();
-                    // }, 1000); 
-
-                    // For standard Netlify submit, just let it happen. Netlify shows its own success page/message.
-                    console.log("Form submitted (standard Netlify handling expected).");
-                });
-            }
+             if (contactForm) {
+                 // Netlify handles submission automatically with the attributes in the HTML.
+                 // No complex JS needed unless you want AJAX submission.
+                 console.log("Contact form found. Netlify handling enabled via HTML attributes.");
+             }
         });
     </script>
 </body>
