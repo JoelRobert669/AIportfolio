@@ -52,7 +52,8 @@
             width: 100%;
         }
         
-        .active-filter {
+        /* Updated active filter style */
+        .filter-btn.active-filter {
             background-color: #f5f5f5;
             color: #0a0a0a;
         }
@@ -80,7 +81,8 @@
                 <a href="#services" class="nav-link">Services</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
-            <button class="md:hidden">
+             <!-- Hamburger Button -->
+            <button id="menuButton" class="md:hidden">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
@@ -90,10 +92,10 @@
 
     <!-- Mobile Menu (hidden by default) -->
     <div id="mobileMenu" class="fixed inset-0 bg-black z-40 flex flex-col items-center justify-center space-y-8 hidden">
-        <a href="#works" class="text-2xl">Works</a>
-        <a href="#about" class="text-2xl">About</a>
-        <a href="#services" class="text-2xl">Services</a>
-        <a href="#contact" class="text-2xl">Contact</a>
+        <a href="#works" class="text-2xl mobile-nav-link">Works</a>
+        <a href="#about" class="text-2xl mobile-nav-link">About</a>
+        <a href="#services" class="text-2xl mobile-nav-link">Services</a>
+        <a href="#contact" class="text-2xl mobile-nav-link">Contact</a>
         <button id="closeMenu" class="absolute top-6 right-6">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -119,125 +121,71 @@
         <div class="max-w-6xl mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center fade-in">Featured Works</h2>
             
-            <!-- Filter Buttons -->
+            <!-- Filter Buttons (Updated Categories) -->
             <div class="flex flex-wrap justify-center gap-3 mb-12 fade-in">
-                <button class="filter-btn px-4 py-2 border border-white hover:bg-white hover:text-black transition-colors" data-filter="all">All</button>
+                <button class="filter-btn px-4 py-2 border border-white hover:bg-white hover:text-black transition-colors active-filter" data-filter="all">All</button>
                 <button class="filter-btn px-4 py-2 border border-white hover:bg-white hover:text-black transition-colors" data-filter="concept">Concept Art</button>
                 <button class="filter-btn px-4 py-2 border border-white hover:bg-white hover:text-black transition-colors" data-filter="action">Action/Sports</button>
                 <button class="filter-btn px-4 py-2 border border-white hover:bg-white hover:text-black transition-colors" data-filter="character">Character</button>
+                <button class="filter-btn px-4 py-2 border border-white hover:bg-white hover:text-black transition-colors" data-filter="scene">Scene/Storyboard</button>
+                <button class="filter-btn px-4 py-2 border border-white hover:bg-white hover:text-black transition-colors" data-filter="product">Product</button>
                 <button class="filter-btn px-4 py-2 border border-white hover:bg-white hover:text-black transition-colors" data-filter="illustration">Illustration</button>
-                <button class="filter-btn px-4 py-2 border border-white hover:bg-white hover:text-black transition-colors" data-filter="epic">Epic Scenes</button>
             </div>
             
-            <!-- Portfolio Grid -->
+            <!-- Portfolio Grid (Full List with Detailed Categories) -->
+            <!-- *** CUSTOMIZE Titles & Category Text Below *** -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Portfolio Item 1 -->
-                <div class="portfolio-item fade-in" data-category="character">
-                    <img src="sorted_port/charecter test1.webp" alt="Woman in floral saree smiling in flower field" class="w-full h-auto object-cover">
-                    <div class="mt-4">
-                        <h3 class="text-xl font-medium">Floral Portrait</h3>
-                        <p class="text-gray-400">Character Design</p>
-                    </div>
-                </div>
                 
-                <!-- Portfolio Item 2 -->
-                <div class="portfolio-item fade-in" data-category="illustration">
-                    <img src="sorted_port/cup1.webp" alt="Two men in suits holding branded coffee cups" class="w-full h-auto object-cover">
-                    <div class="mt-4">
-                        <h3 class="text-xl font-medium">Branded Coffee</h3>
-                        <p class="text-gray-400">Illustration</p>
-                    </div>
-                </div>
-                
-                <!-- Portfolio Item 3 -->
-                <div class="portfolio-item fade-in" data-category="epic">
-                    <img src="sorted_port/epic2.webp" alt="Figure standing before king in ornate royal court" class="w-full h-auto object-cover">
-                    <div class="mt-4">
-                        <h3 class="text-xl font-medium">Royal Court</h3>
-                        <p class="text-gray-400">Epic Scene</p>
-                    </div>
-                </div>
-                
-                <!-- Portfolio Item 4 -->
-                <div class="portfolio-item fade-in" data-category="concept">
-                    <img src="sorted_port/hill1.webp" alt="Temple on mountain cliff above clouds at sunset" class="w-full h-auto object-cover">
-                    <div class="mt-4">
-                        <h3 class="text-xl font-medium">Mountain Temple</h3>
-                        <p class="text-gray-400">Concept Art</p>
-                    </div>
-                </div>
-                
-                <!-- Portfolio Item 5 -->
-                <div class="portfolio-item fade-in" data-category="action">
-                    <img src="sorted_port/bike5.webp" alt="Motocross rider racing through muddy forest" class="w-full h-auto object-cover">
-                    <div class="mt-4">
-                        <h3 class="text-xl font-medium">Forest Race</h3>
-                        <p class="text-gray-400">Action/Sports</p>
-                    </div>
-                </div>
-                
-                <!-- Portfolio Item 6 -->
-                <div class="portfolio-item fade-in" data-category="character">
-                    <img src="sorted_port/man1.webp" alt="Intense close-up portrait of man" class="w-full h-auto object-cover">
-                    <div class="mt-4">
-                        <h3 class="text-xl font-medium">Intense Portrait</h3>
-                        <p class="text-gray-400">Character Design</p>
-                    </div>
-                </div>
-                
-                <!-- Portfolio Item 7 -->
-                <div class="portfolio-item fade-in" data-category="illustration">
-                    <img src="sorted_port/illustrastion3.webp" alt="Comic panels showing action sequence with character and water" class="w-full h-auto object-cover">
-                    <div class="mt-4">
-                        <h3 class="text-xl font-medium">Comic Sequence</h3>
-                        <p class="text-gray-400">Illustration</p>
-                    </div>
-                </div>
-                
-                <!-- Portfolio Item 8 -->
-                <div class="portfolio-item fade-in" data-category="concept">
-                    <img src="sorted_port/glasses.webp" alt="Aviator sunglasses resting on sand at beach" class="w-full h-auto object-cover">
-                    <div class="mt-4">
-                        <h3 class="text-xl font-medium">Beach Glasses</h3>
-                        <p class="text-gray-400">Concept Art</p>
-                    </div>
-                </div>
-                
-                <!-- Portfolio Item 9 -->
-                <div class="portfolio-item fade-in" data-category="epic">
-                    <img src="sorted_port/hero1.webp" alt="Superman-like figure floating in space above dog on rock" class="w-full h-auto object-cover">
-                    <div class="mt-4">
-                        <h3 class="text-xl font-medium">Space Hero</h3>
-                        <p class="text-gray-400">Epic Scene</p>
-                    </div>
-                </div>
-                
-                <!-- Portfolio Item 10 -->
-                <div class="portfolio-item fade-in" data-category="epic">
-                    <img src="sorted_port/movie5.webp" alt="Soldier watching distant explosion at dusk" class="w-full h-auto object-cover">
-                    <div class="mt-4">
-                        <h3 class="text-xl font-medium">Warrior's Gaze</h3>
-                        <p class="text-gray-400">Epic Scene</p>
-                    </div>
-                </div>
-                
-                <!-- Portfolio Item 11 -->
-                <div class="portfolio-item fade-in" data-category="concept">
-                    <img src="sorted_port/watch.webp" alt="Close-up of wristwatch on leather surface" class="w-full h-auto object-cover">
-                    <div class="mt-4">
-                        <h3 class="text-xl font-medium">Timepiece</h3>
-                        <p class="text-gray-400">Concept Art</p>
-                    </div>
-                </div>
-                
-                <!-- Portfolio Item 12 -->
-                <div class="portfolio-item fade-in" data-category="action">
-                    <img src="sorted_port/bike2.webp" alt="Motocross racers lined up at starting gate at night" class="w-full h-auto object-cover">
-                    <div class="mt-4">
-                        <h3 class="text-xl font-medium">Night Race</h3>
-                        <p class="text-gray-400">Action/Sports</p>
-                    </div>
-                </div>
+                {/* --- Illustration --- */}
+                 <div class="portfolio-item fade-in" data-category="illustration"> <img src="sorted_port/ILLUSTRATION.webp" alt="Four panel comic strip about filmmaking"><div class="mt-4"><h3 class="text-xl font-medium">Filmmaking Comic</h3><p class="text-gray-400">Illustration / Comic</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="illustration"> <img src="sorted_port/illustrastion3.webp" alt="Comic panels showing action sequence"><div class="mt-4"><h3 class="text-xl font-medium">Action Sequence</h3><p class="text-gray-400">Illustration / Storyboard</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="illustration"> <img src="sorted_port/illustrastion4.webp" alt="Romance comic panels"><div class="mt-4"><h3 class="text-xl font-medium">Romance Panels</h3><p class="text-gray-400">Illustration / Storyboard</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="illustration"> <img src="sorted_port/temple2.webp" alt="Colorful line doodle illustration of Tamil Nadu"><div class="mt-4"><h3 class="text-xl font-medium">Tamil Nadu Doodle</h3><p class="text-gray-400">Illustration / Cultural</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="illustration"> <img src="sorted_port/tiger1.webp" alt="Cute cartoon tiger leaping playfully"><div class="mt-4"><h3 class="text-xl font-medium">Playful Tiger</h3><p class="text-gray-400">Illustration / Character</p></div></div>
+
+                {/* --- Action / Sports --- */}
+                 <div class="portfolio-item fade-in" data-category="action"> <img src="sorted_port/bike5.webp" alt="Motocross rider racing through muddy forest"><div class="mt-4"><h3 class="text-xl font-medium">Mud Splatter</h3><p class="text-gray-400">Action / Sports</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="action"> <img src="sorted_port/bike6.webp" alt="Motocross rider kicking up sand"><div class="mt-4"><h3 class="text-xl font-medium">Desert Kick-up</h3><p class="text-gray-400">Action / Sports</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="action"> <img src="sorted_port/bike2.webp" alt="Motocross racers lined up at starting gate at night"><div class="mt-4"><h3 class="text-xl font-medium">Starting Gate</h3><p class="text-gray-400">Action / Sports</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="action"> <img src="sorted_port/bike4.webp" alt="Lineup of motocross bikes and mechanics in garage"><div class="mt-4"><h3 class="text-xl font-medium">Race Prep</h3><p class="text-gray-400">Scene / Action</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="action"> <img src="sorted_port/bike3.webp" alt="Motocross team member at command center screens"><div class="mt-4"><h3 class="text-xl font-medium">Race Command</h3><p class="text-gray-400">Scene / Action</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="action"> <img src="sorted_port/bikemeet.webp" alt="Two motocross riders with bikes under spotlights"><div class="mt-4"><h3 class="text-xl font-medium">Night Riders</h3><p class="text-gray-400">Action / Sports</p></div></div>
+
+                {/* --- Character --- */}
+                 <div class="portfolio-item fade-in" data-category="character"> <img src="sorted_port/charecter test1.webp" alt="Woman in floral saree smiling"><div class="mt-4"><h3 class="text-xl font-medium">Floral Elegance</h3><p class="text-gray-400">Character Design</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="character"> <img src="sorted_port/charecter test2.webp" alt="Woman smiling brightly in field of flowers"><div class="mt-4"><h3 class="text-xl font-medium">Spring Reverie</h3><p class="text-gray-400">Character Design</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="character"> <img src="sorted_port/joel.webp" alt="Pilot Joel"><div class="mt-4"><h3 class="text-xl font-medium">Pilot Joel</h3><p class="text-gray-400">Character Design / Aviation</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="character"> <img src="sorted_port/self1.webp" alt="Pilot named Amal looking back by fighter jet"><div class="mt-4"><h3 class="text-xl font-medium">Pilot Amal</h3><p class="text-gray-400">Character Design / Aviation</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="character"> <img src="sorted_port/man1.webp" alt="Intense close-up portrait of man"><div class="mt-4"><h3 class="text-xl font-medium">Intense Gaze</h3><p class="text-gray-400">Character Design / Portrait</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="character"> <img src="sorted_port/self3.webp" alt="Man reading book by fireplace"><div class="mt-4"><h3 class="text-xl font-medium">Cozy Evening</h3><p class="text-gray-400">Character / Scene</p></div></div>
+                   
+                {/* --- Concept Art --- */}
+                 <div class="portfolio-item fade-in" data-category="concept"> <img src="sorted_port/city1.webp" alt="Aerial view of city highway at dusk"><div class="mt-4"><h3 class="text-xl font-medium">Urban Flow</h3><p class="text-gray-400">Concept Art / Environment</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="concept"> <img src="sorted_port/epic1.webp" alt="Warrior on dusty chariot in golden light"><div class="mt-4"><h3 class="text-xl font-medium">Heroic Ride</h3><p class="text-gray-400">Concept Art / Historical</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="concept"> <img src="sorted_port/epic4.webp" alt="Warrior on chariot with four horses against large sun"><div class="mt-4"><h3 class="text-xl font-medium">Solar Chariot</h3><p class="text-gray-400">Concept Art / Mythological</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="concept"> <img src="sorted_port/epic5.webp" alt="Silhouette of ancient chariot against sunset"><div class="mt-4"><h3 class="text-xl font-medium">Sunset Charge</h3><p class="text-gray-400">Concept Art / Historical</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="concept"> <img src="sorted_port/epic6.webp" alt="Ancient chariot with flames against golden sky"><div class="mt-4"><h3 class="text-xl font-medium">Flaming Chariot</h3><p class="text-gray-400">Concept Art / Fantasy</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="concept"> <img src="sorted_port/hero1.webp" alt="Superman figure in space"><div class="mt-4"><h3 class="text-xl font-medium">Cosmic Hero</h3><p class="text-gray-400">Concept Art / Fantasy</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="concept"> <img src="sorted_port/hill1.webp" alt="Temple on mountain cliff above clouds at sunset"><div class="mt-4"><h3 class="text-xl font-medium">Temple Above Clouds</h3><p class="text-gray-400">Concept Art / Landscape</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="concept"> <img src="sorted_port/hill2.webp" alt="Sunset over mountain valley city"><div class="mt-4"><h3 class="text-xl font-medium">Valley Sunset</h3><p class="text-gray-400">Concept Art / Landscape</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="concept"> <img src="sorted_port/temple1.webp" alt="Arasan Bakery 3D scene"><div class="mt-4"><h3 class="text-xl font-medium">Arasan Bakery 3D</h3><p class="text-gray-400">Concept Art / Animation</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="concept"> <img src="sorted_port/aliens.webp" alt="Futuristic city with giant alien entity"><div class="mt-4"><h3 class="text-xl font-medium">Celestial Visitor</h3><p class="text-gray-400">Concept Art / Sci-Fi</p></div></div>
+
+                {/* --- Scene / Storyboard --- */}
+                 <div class="portfolio-item fade-in" data-category="scene"> <img src="sorted_port/epic2.webp" alt="Figure standing before king in ornate royal court"><div class="mt-4"><h3 class="text-xl font-medium">Before the Throne</h3><p class="text-gray-400">Scene / Storyboard</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="scene"> <img src="sorted_port/epic3.webp" alt="Figure entering grand royal court hall"><div class="mt-4"><h3 class="text-xl font-medium">Royal Audience</h3><p class="text-gray-400">Scene / Storyboard</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="scene"> <img src="sorted_port/movie1.webp" alt="Musicians playing instruments on boat on lake"><div class="mt-4"><h3 class="text-xl font-medium">Lakeside Serenade</h3><p class="text-gray-400">Scene / Storyboard</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="scene"> <img src="sorted_port/movie2.webp" alt="Couple sitting closely on park bench at sunset"><div class="mt-4"><h3 class="text-xl font-medium">Park Bench Romance</h3><p class="text-gray-400">Scene / Storyboard</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="scene"> <img src="sorted_port/movie3.webp" alt="Man in winter gear looking at explosion over ice"><div class="mt-4"><h3 class="text-xl font-medium">Arctic Incident</h3><p class="text-gray-400">Scene / Storyboard</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="scene"> <img src="sorted_port/movie4.webp" alt="Man looking intensely towards fire background"><div class="mt-4"><h3 class="text-xl font-medium">Facing Calamity</h3><p class="text-gray-400">Scene / Storyboard</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="scene"> <img src="sorted_port/movie5.webp" alt="Soldier watching distant explosion at dusk"><div class="mt-4"><h3 class="text-xl font-medium">Distant Threat</h3><p class="text-gray-400">Scene / Storyboard</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="scene"> <img src="sorted_port/stage1.webp" alt="Audience members watching intently in theater"><div class="mt-4"><h3 class="text-xl font-medium">Captivated Audience</h3><p class="text-gray-400">Scene / Storyboard</p></div></div>
+                    
+                {/* --- Product --- */}
+                 <div class="portfolio-item fade-in" data-category="product"> <img src="sorted_port/cup1.webp" alt="Two men in suits holding branded coffee cups"><div class="mt-4"><h3 class="text-xl font-medium">Brand Mockup</h3><p class="text-gray-400">Product / Branding</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="product"> <img src="sorted_port/glasses.webp" alt="Aviator sunglasses resting on sand at beach"><div class="mt-4"><h3 class="text-xl font-medium">Beach Vision</h3><p class="text-gray-400">Product Visualization</p></div></div>
+                 <div class="portfolio-item fade-in" data-category="product"> <img src="sorted_port/watch.webp" alt="Close-up of wristwatch on leather surface"><div class="mt-4"><h3 class="text-xl font-medium">Timeless Piece</h3><p class="text-gray-400">Product Visualization</p></div></div>
+
             </div>
         </div>
     </section>
@@ -260,41 +208,12 @@
             <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center fade-in">Services</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="bg-black bg-opacity-50 p-8 rounded-lg fade-in">
-                    <h3 class="text-2xl font-bold mb-4">Concept Art</h3>
-                    <p class="text-gray-300">High-quality concept art for films, games, and products. From initial sketches to polished presentations.</p>
-                </div>
-                
-                <!-- Service 2 -->
-                <div class="bg-black bg-opacity-50 p-8 rounded-lg fade-in">
-                    <h3 class="text-2xl font-bold mb-4">Character Design</h3>
-                    <p class="text-gray-300">Unique character designs with detailed backstories and visual development for any medium.</p>
-                </div>
-                
-                <!-- Service 3 -->
-                <div class="bg-black bg-opacity-50 p-8 rounded-lg fade-in">
-                    <h3 class="text-2xl font-bold mb-4">AI Visualization</h3>
-                    <p class="text-gray-300">Cutting-edge AI-assisted visualization to bring your ideas to life with unprecedented speed and quality.</p>
-                </div>
-                
-                <!-- Service 4 -->
-                <div class="bg-black bg-opacity-50 p-8 rounded-lg fade-in">
-                    <h3 class="text-2xl font-bold mb-4">Storyboarding</h3>
-                    <p class="text-gray-300">Dynamic storyboards that capture the essence of your narrative with clear visual storytelling.</p>
-                </div>
-                
-                <!-- Service 5 -->
-                <div class="bg-black bg-opacity-50 p-8 rounded-lg fade-in">
-                    <h3 class="text-2xl font-bold mb-4">World Building</h3>
-                    <p class="text-gray-300">Comprehensive world design with cohesive environments, cultures, and visual systems.</p>
-                </div>
-                
-                <!-- Service 6 -->
-                <div class="bg-black bg-opacity-50 p-8 rounded-lg fade-in">
-                    <h3 class="text-2xl font-bold mb-4">Brand Visualization</h3>
-                    <p class="text-gray-300">Visual concepts that embody brand identity and communicate core values through striking imagery.</p>
-                </div>
+                <div class="bg-black bg-opacity-50 p-8 rounded-lg fade-in"> <h3 class="text-2xl font-bold mb-4">Concept Art</h3> <p class="text-gray-300">High-quality concept art for films, games, and products. From initial sketches to polished presentations.</p> </div>
+                <div class="bg-black bg-opacity-50 p-8 rounded-lg fade-in"> <h3 class="text-2xl font-bold mb-4">Character Design</h3> <p class="text-gray-300">Unique character designs with detailed backstories and visual development for any medium.</p> </div>
+                <div class="bg-black bg-opacity-50 p-8 rounded-lg fade-in"> <h3 class="text-2xl font-bold mb-4">AI Visualization</h3> <p class="text-gray-300">Cutting-edge AI-assisted visualization to bring your ideas to life with unprecedented speed and quality.</p> </div>
+                <div class="bg-black bg-opacity-50 p-8 rounded-lg fade-in"> <h3 class="text-2xl font-bold mb-4">Storyboarding</h3> <p class="text-gray-300">Dynamic storyboards that capture the essence of your narrative with clear visual storytelling.</p> </div>
+                <div class="bg-black bg-opacity-50 p-8 rounded-lg fade-in"> <h3 class="text-2xl font-bold mb-4">World Building</h3> <p class="text-gray-300">Comprehensive world design with cohesive environments, cultures, and visual systems.</p> </div>
+                <div class="bg-black bg-opacity-50 p-8 rounded-lg fade-in"> <h3 class="text-2xl font-bold mb-4">Brand Visualization</h3> <p class="text-gray-300">Visual concepts that embody brand identity and communicate core values through striking imagery.</p> </div>
             </div>
         </div>
     </section>
@@ -309,31 +228,15 @@
                 <div class="space-y-6 fade-in">
                     <h3 class="text-2xl font-bold">Get in Touch</h3>
                     <div class="space-y-4">
-                        <div class="flex items-start space-x-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /> </svg>
-                             <!-- *** UPDATED EMAIL *** -->
-                            <span><a href="mailto:joelrobert669@gmail.com" class="hover:underline">joelrobert669@gmail.com</a></span>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /> </svg>
-                             <!-- *** UPDATED LOCATION *** -->
-                            <span>Kochi, Kerala, India</span>
-                        </div>
+                         <div class="flex items-start space-x-4"> <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /> </svg> <span><a href="mailto:joelrobert669@gmail.com" class="hover:underline">joelrobert669@gmail.com</a></span> </div>
+                         <div class="flex items-start space-x-4"> <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /> </svg> <span>Kochi, Kerala, India</span> </div>
                     </div>
                     
                     <div class="pt-4">
                         <h4 class="text-lg font-medium mb-4">Connect</h4>
                         <div class="flex space-x-6">
-                            <!-- *** UPDATED LINKEDIN LINK *** -->
-                            <a href="https://www.linkedin.com/in/joel-robert-173386239/?originalSubdomain=in" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300 transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"> <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/> </svg>
-                            </a>
-                             <!-- *** UPDATED INSTAGRAM LINK *** -->
-                            <a href="https://www.instagram.com/joelalla_/" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300 transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"> <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/> </svg>
-                            </a>
-                            <!-- Removed placeholder Facebook link -->
-                            <!-- <a href="#" class="hover:text-gray-300 transition-colors"> ... </a> -->
+                            <a href="https://www.linkedin.com/in/joel-robert-173386239/?originalSubdomain=in" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300 transition-colors"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"> <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/> </svg> </a>
+                            <a href="https://www.instagram.com/joelalla_/" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300 transition-colors"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"> <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/> </svg> </a>
                         </div>
                     </div>
                 </div>
@@ -341,25 +244,11 @@
                 <!-- Contact Form -->
                 <div class="fade-in">
                     <form id="contactForm" class="space-y-6">
-                        <div>
-                            <label for="name" class="block mb-2">Name</label>
-                            <input type="text" id="name" name="name" required class="w-full px-4 py-2 rounded">
-                        </div>
-                        <div>
-                            <label for="email" class="block mb-2">Email</label>
-                            <input type="email" id="email" name="email" required class="w-full px-4 py-2 rounded">
-                        </div>
-                        <div>
-                            <label for="subject" class="block mb-2">Subject</label>
-                            <input type="text" id="subject" name="subject" required class="w-full px-4 py-2 rounded">
-                        </div>
-                        <div>
-                            <label for="message" class="block mb-2">Message</label>
-                            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 rounded"></textarea>
-                        </div>
-                        <button type="submit" class="bg-white text-black px-6 py-3 rounded hover:bg-gray-200 transition-colors">
-                            Send Message
-                        </button>
+                        <div> <label for="name" class="block mb-2">Name</label> <input type="text" id="name" name="name" required class="w-full px-4 py-2 rounded"> </div>
+                        <div> <label for="email" class="block mb-2">Email</label> <input type="email" id="email" name="email" required class="w-full px-4 py-2 rounded"> </div>
+                        <div> <label for="subject" class="block mb-2">Subject</label> <input type="text" id="subject" name="subject" required class="w-full px-4 py-2 rounded"> </div>
+                        <div> <label for="message" class="block mb-2">Message</label> <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 rounded"></textarea> </div>
+                        <button type="submit" class="bg-white text-black px-6 py-3 rounded hover:bg-gray-200 transition-colors"> Send Message </button>
                     </form>
                 </div>
             </div>
@@ -379,78 +268,91 @@
         
         // Mobile menu toggle
         const mobileMenu = document.getElementById('mobileMenu');
-        const menuButton = document.querySelector('nav button');
+        const menuButton = document.getElementById('menuButton'); // Use ID for button
         const closeMenu = document.getElementById('closeMenu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link'); // Use class for links
         
-        menuButton.addEventListener('click', () => {
-            mobileMenu.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        });
+        if (menuButton) {
+            menuButton.addEventListener('click', () => {
+                if (mobileMenu) mobileMenu.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // Prevent background scroll
+            });
+        }
         
-        closeMenu.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            document.body.style.overflow = '';
-        });
+        if (closeMenu) {
+            closeMenu.addEventListener('click', () => {
+                if (mobileMenu) mobileMenu.classList.add('hidden');
+                document.body.style.overflow = ''; // Restore scroll
+            });
+        }
         
         // Close mobile menu when clicking on a link
-        document.querySelectorAll('#mobileMenu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                document.body.style.overflow = '';
+         if (mobileNavLinks.length > 0) {
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                     if (mobileMenu) mobileMenu.classList.add('hidden');
+                     document.body.style.overflow = ''; // Restore scroll
+                });
             });
-        });
+        }
         
         // Portfolio filtering
         const filterButtons = document.querySelectorAll('.filter-btn');
         const portfolioItems = document.querySelectorAll('.portfolio-item');
         
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                filterButtons.forEach(btn => btn.classList.remove('active-filter'));
-                
-                // Add active class to clicked button
-                button.classList.add('active-filter');
-                
-                const filterValue = button.getAttribute('data-filter');
-                
-                portfolioItems.forEach(item => {
-                    // Hide/show based on filter
-                    const itemCategory = item.getAttribute('data-category');
-                    if (filterValue === 'all' || itemCategory === filterValue) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
+        if (filterButtons.length > 0 && portfolioItems.length > 0) {
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active-filter'));
+                    button.classList.add('active-filter');
+                    const filterValue = button.getAttribute('data-filter');
+                    
+                    portfolioItems.forEach(item => {
+                        const itemCategory = item.getAttribute('data-category');
+                        if (filterValue === 'all' || itemCategory === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
                 });
             });
-        });
-        
-        // Set 'All' as active by default
-        document.querySelector('.filter-btn[data-filter="all"]').classList.add('active-filter');
+            // Set 'All' active by default if it exists
+             const allButton = document.querySelector('.filter-btn[data-filter="all"]');
+             if (allButton) allButton.classList.add('active-filter');
+
+        } else {
+            console.warn("Filter buttons or portfolio items not found.");
+        }
+
         
         // Scroll fade-in animation
         const fadeElements = document.querySelectorAll('.fade-in');
         
-        const checkFade = () => {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (elementTop < windowHeight - 100) { // Trigger when element is 100px from bottom
-                    element.classList.add('visible');
-                } else {
-                     // Optional: remove class if element scrolls out of view (for re-triggering)
-                     // element.classList.remove('visible'); 
-                }
+        if (fadeElements.length > 0 && "IntersectionObserver" in window) {
+            const checkFade = (entries, observer) => {
+                 entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Optional: stop observing once visible
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(checkFade, {
+                threshold: 0.1 // Trigger when 10% visible
             });
-        };
-        
-        // Initial check
-        checkFade();
-        
-        // Check on scroll
-        window.addEventListener('scroll', checkFade);
+
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+        } else if (fadeElements.length > 0) {
+            // Fallback for older browsers or if IntersectionObserver fails
+            fadeElements.forEach(element => element.classList.add('visible')); 
+            console.warn("IntersectionObserver not supported or fade elements not found, showing all.");
+        }
+
         
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -461,12 +363,12 @@
                 const targetElement = document.querySelector(targetId);
                 
                 if (targetElement) {
-                    const offsetTop = targetElement.offsetTop;
-                    // Adjust offset based on nav height (approx 80px might work)
-                    const navHeight = document.querySelector('nav').offsetHeight || 80; 
+                    const navElement = document.querySelector('nav');
+                    const navHeight = navElement ? navElement.offsetHeight : 70; // Estimate nav height if needed
+                    const targetPosition = targetElement.offsetTop - navHeight;
                     
                     window.scrollTo({
-                        top: offsetTop - navHeight, // Subtract nav height
+                        top: targetPosition,
                         behavior: 'smooth'
                     });
                 }
@@ -474,11 +376,15 @@
         });
         
         // Simple form submission (no backend)
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! I will get back to you soon.');
-            this.reset();
-        });
+        const contactForm = document.getElementById('contactForm');
+        if(contactForm) {
+             contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! I will get back to you soon.');
+                this.reset();
+            });
+        }
+       
     </script>
 </body>
 </html>
